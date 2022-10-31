@@ -27,6 +27,8 @@ except:
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 ex = Experiment("test")
 
 np.random.seed(1)
@@ -99,7 +101,7 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
     n_out = len(property2idx)
     print("N_out:", n_out)
 
-    model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).cuda()
+    model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).to(device)
     model.load_state_dict(torch.load(save_folder + load_model))
     print("Testing")
 
@@ -116,16 +118,16 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
         labels = test_as_indices[2][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
 
         if model_name == "GPGNN":
-            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).cuda(),
-                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).cuda(),
+            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device),
+                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device),
                             test_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])
         elif model_name == "PCNN":
-            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).cuda(), 
-                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).cuda(), 
-                            Variable(torch.from_numpy(np.array(test_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), requires_grad=False, volatile=True).cuda())        
+            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
+                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device), 
+                            Variable(torch.from_numpy(np.array(test_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), requires_grad=False, volatile=True).to(device))        
         else:
-            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).cuda(),
-                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).cuda())
+            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device),
+                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device))
 
         score = F.softmax(output)
         score = to_np(score).reshape(-1, n_out)

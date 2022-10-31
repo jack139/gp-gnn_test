@@ -22,6 +22,8 @@ from models.factory import get_model
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"   # see issue #152
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 ex = Experiment("test")
 
 np.random.seed(1)
@@ -122,10 +124,10 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     print("Training the model")
 
     print("Initialize the model")
-    model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).cuda()
+    model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).to(device)
 
 
-    loss_func = nn.CrossEntropyLoss(ignore_index=0).cuda()
+    loss_func = nn.CrossEntropyLoss(ignore_index=0).to(device)
     opt = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=learning_rate, weight_decay=model_params['weight_decay'])
 
     indices = np.arange(train_as_indices[0].shape[0])
@@ -143,18 +145,18 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
             labels = train_as_indices[2][indices[i * model_params['batch_size']: (i + 1) * model_params['batch_size']]]
             
             if model_name == "GPGNN":
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).cuda(), 
-                                Variable(torch.from_numpy(entity_markers.astype(int))).cuda(), 
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int))).to(device), 
                                 train_as_indices[3][indices[i * model_params['batch_size']: (i + 1) * model_params['batch_size']]])
             elif model_name == "PCNN":
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).cuda(), 
-                                Variable(torch.from_numpy(entity_markers.astype(int))).cuda(), 
-                                Variable(torch.from_numpy(np.array(train_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), requires_grad=False).cuda())
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int))).to(device), 
+                                Variable(torch.from_numpy(np.array(train_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), requires_grad=False).to(device))
             else:
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).cuda(),
-                                Variable(torch.from_numpy(entity_markers.astype(int))).cuda())
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device),
+                                Variable(torch.from_numpy(entity_markers.astype(int))).to(device))
 
-            loss = loss_func(output, Variable(torch.from_numpy(labels.astype(int))).view(-1).cuda())
+            loss = loss_func(output, Variable(torch.from_numpy(labels.astype(int))).view(-1).to(device))
 
             loss.backward()
             torch.nn.utils.clip_grad_norm(model.parameters(), grad_clip)
@@ -179,16 +181,16 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
             entity_markers = val_as_indices[1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
             labels = val_as_indices[2][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
             if model_name == "GPGNN":
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).cuda(), 
-                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).cuda(), 
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device), 
                                 val_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])
             elif model_name == "PCNN":
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).cuda(), 
-                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).cuda(), 
-                                Variable(torch.from_numpy(np.array(val_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), volatile=True).cuda())        
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device), 
+                                Variable(torch.from_numpy(np.array(val_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), volatile=True).to(device))        
             else:
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).cuda(), 
-                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).cuda())
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device))
 
             _, predicted = torch.max(output, dim=1)
             labels = labels.reshape(-1).tolist()

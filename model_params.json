@@ -12,7 +12,7 @@
   "position_emb": 3,
   "gpu": true,
   "contex.sum": "sum",
-  "nb_epoch": 100,
+  "nb_epoch": 5,
   "batch_size": 50,
   "weight_decay": 0,
   "embedding_dim": 8,

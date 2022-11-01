@@ -44,8 +44,8 @@ def main_config():
 
     model_params = "model_params.json"
     word_embeddings = "glove.6B.50d.txt"
-    train_set = "train.json"
-    val_set = "validation.json"
+    train_set = "test_train.json" #"train.json"
+    val_set = "test_val.json" #"validation.json"
 
     # a file to store property2idx
     # if is None use model_name.property2idx

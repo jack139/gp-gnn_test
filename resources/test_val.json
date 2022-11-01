@@ -1,0 +1,5801 @@
+[
+    {
+        "tokens": [
+            "Tulostoma",
+            "is",
+            "a",
+            "genus",
+            "of",
+            "over",
+            "100",
+            "species",
+            "of",
+            "fungi",
+            "in",
+            "the",
+            "family",
+            "Agaricaceae",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q430469",
+                "lexicalInput": "Tulostoma",
+                "namedEntity": true,
+                "tokenpositions": [
+                    0
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q34740",
+                "lexicalInput": "genus",
+                "namedEntity": true,
+                "tokenpositions": [
+                    3
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q913614",
+                "lexicalInput": "Agaricaceae",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    3
+                ],
+                "left": [
+                    0
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13
+                ],
+                "left": [
+                    0
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13
+                ],
+                "left": [
+                    3
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Wooldridge",
+            "(",
+            "full",
+            "name",
+            "and",
+            "dates",
+            "of",
+            "birth",
+            "and",
+            "death",
+            "unknown",
+            ")",
+            "was",
+            "an",
+            "English",
+            "cricket",
+            "er",
+            "who",
+            "played",
+            "for",
+            "Hampshire",
+            "county",
+            "cricket",
+            "teams",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q21",
+                "lexicalInput": "English",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q5375",
+                "lexicalInput": "cricket",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q5646085",
+                "lexicalInput": "Hampshire county cricket teams",
+                "namedEntity": true,
+                "tokenpositions": [
+                    20,
+                    21,
+                    22,
+                    23
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21,
+                    22,
+                    23
+                ],
+                "left": [
+                    14
+                ]
+            },
+            {
+                "kbID": "P495",
+                "right": [
+                    14
+                ],
+                "left": [
+                    15
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21,
+                    22,
+                    23
+                ],
+                "left": [
+                    15
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "municipalities",
+            "in",
+            "the",
+            "district",
+            "are",
+            "Rennebu",
+            ",",
+            "Meldal",
+            ",",
+            "and",
+            "Orkdal",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q488124",
+                "lexicalInput": "Rennebu",
+                "namedEntity": true,
+                "tokenpositions": [
+                    6
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q484191",
+                "lexicalInput": "Meldal",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q500284",
+                "lexicalInput": "Orkdal",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    11
+                ],
+                "left": [
+                    6
+                ]
+            },
+            {
+                "kbID": "P47",
+                "right": [
+                    6
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P47",
+                "right": [
+                    8
+                ],
+                "left": [
+                    11
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Solariella",
+            "euteia",
+            "is",
+            "a",
+            "species",
+            "of",
+            "sea",
+            "snail",
+            ",",
+            "a",
+            "marine",
+            "gastropod",
+            "mollusk",
+            "in",
+            "the",
+            "family",
+            "Solariellidae",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q7432",
+                "lexicalInput": "species",
+                "namedEntity": true,
+                "tokenpositions": [
+                    4
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q35409",
+                "lexicalInput": "family",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q7557026",
+                "lexicalInput": "Solariellidae",
+                "namedEntity": true,
+                "tokenpositions": [
+                    16
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q7556955",
+                "lexicalInput": "Solariella euteia",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16
+                ],
+                "left": [
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    15
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16
+                ],
+                "left": [
+                    15
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    16
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "retina",
+            "of",
+            "the",
+            "eye",
+            "contains",
+            "classical",
+            "photoreceptors",
+            "(",
+            "rods",
+            "and",
+            "cones",
+            ")",
+            ",",
+            "which",
+            "are",
+            "used",
+            "for",
+            "conventional",
+            "vision",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q169342",
+                "lexicalInput": "retina",
+                "namedEntity": true,
+                "tokenpositions": [
+                    1
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q748049",
+                "lexicalInput": "photoreceptors",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q505544",
+                "lexicalInput": "rods",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q147298",
+                "lexicalInput": "cones",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q7364",
+                "lexicalInput": "eye",
+                "namedEntity": false,
+                "tokenpositions": [
+                    3,
+                    4
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P361",
+                "right": [
+                    3,
+                    4
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    7
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    11
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    3,
+                    4
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P927",
+                "right": [
+                    1
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    3,
+                    4
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P279",
+                "right": [
+                    7
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    11
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    3,
+                    4
+                ],
+                "left": [
+                    11
+                ]
+            },
+            {
+                "kbID": "P279",
+                "right": [
+                    7
+                ],
+                "left": [
+                    11
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Jere",
+            "H\u00e5rd",
+            "(",
+            "born",
+            "7",
+            "December",
+            "1978",
+            "in",
+            "Jyv\u00e4skyl\u00e4",
+            ",",
+            "Finland",
+            ")",
+            "is",
+            "a",
+            "retired",
+            "male",
+            "freestyle",
+            "and",
+            "butterfly",
+            "swimmer",
+            "from",
+            "Finland",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "1978-12-07",
+                "lexicalInput": "1978-12-07",
+                "namedEntity": false,
+                "tokenpositions": [
+                    4,
+                    5,
+                    6
+                ],
+                "pos": "CD",
+                "numericalValue": 0.0,
+                "dateValue": {
+                    "month": 12,
+                    "day": 7,
+                    "year": 1978
+                },
+                "variable": false,
+                "unique": false,
+                "type": "DATE"
+            },
+            {
+                "kbID": "Q134620",
+                "lexicalInput": "Jyv\u00e4skyl\u00e4",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q33",
+                "lexicalInput": "Finland",
+                "namedEntity": true,
+                "tokenpositions": [
+                    10
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q509077",
+                "lexicalInput": "Jere H\u00e5rd",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P19",
+                "right": [
+                    8
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    4,
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    8
+                ],
+                "left": [
+                    4,
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    10
+                ],
+                "left": [
+                    4,
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    10
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    10
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Philip",
+            "Hunter",
+            "was",
+            "born",
+            "at",
+            "Frimley",
+            ",",
+            "Surrey",
+            ",",
+            "the",
+            "son",
+            "of",
+            "Clare",
+            "and",
+            "Captain",
+            "Albert",
+            "Hunter",
+            "Royal",
+            "Air",
+            "Force",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q1424548",
+                "lexicalInput": "Frimley",
+                "namedEntity": true,
+                "tokenpositions": [
+                    5
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q23276",
+                "lexicalInput": "Surrey",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P131",
+                "right": [
+                    7
+                ],
+                "left": [
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "two",
+            "submarine",
+            "s",
+            "that",
+            "comprised",
+            "the",
+            "class",
+            "were",
+            "Type",
+            "UB",
+            "II",
+            "submarines",
+            "of",
+            "the",
+            "Imperial",
+            "German",
+            "Navy",
+            ",",
+            "making",
+            "the",
+            "two",
+            "classes",
+            "identical",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q3503826",
+                "lexicalInput": "Type UB II submarines",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q156649",
+                "lexicalInput": "Imperial German Navy",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15,
+                    16,
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P121",
+                "right": [
+                    9,
+                    10,
+                    11,
+                    12
+                ],
+                "left": [
+                    15,
+                    16,
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Sweetworthy",
+            "is",
+            "the",
+            "site",
+            "of",
+            "two",
+            "Iron",
+            "Age",
+            "hill",
+            "forts",
+            "or",
+            "enclosures",
+            "at",
+            "Luccombe",
+            ",",
+            "south",
+            "of",
+            "Porlock",
+            ",",
+            "Somerset",
+            ",",
+            "England",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q975527",
+                "lexicalInput": "Luccombe",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1225604",
+                "lexicalInput": "Porlock",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q23157",
+                "lexicalInput": "Somerset",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    17
+                ],
+                "left": [
+                    13
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19
+                ],
+                "left": [
+                    13
+                ]
+            },
+            {
+                "kbID": "P131",
+                "right": [
+                    19
+                ],
+                "left": [
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "David",
+            "Kenga",
+            "(",
+            "born",
+            "July",
+            "8",
+            ",",
+            "1982",
+            "in",
+            "Kilifi",
+            ")",
+            "is",
+            "a",
+            "Kenyan",
+            "footballer",
+            "who",
+            "currently",
+            "plays",
+            "for",
+            "SC",
+            "United",
+            "Bantams",
+            "in",
+            "the",
+            "USL",
+            "Premier",
+            "Development",
+            "League",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q1009199",
+                "lexicalInput": "Kilifi",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q2736",
+                "lexicalInput": "footballer",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q7389397",
+                "lexicalInput": "SC United Bantams",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19,
+                    20,
+                    21
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q976491",
+                "lexicalInput": "USL Premier Development League",
+                "namedEntity": false,
+                "tokenpositions": [
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3703222",
+                "lexicalInput": "David Kenga",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P19",
+                "right": [
+                    9
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P54",
+                "right": [
+                    19,
+                    20,
+                    21
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    14
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19,
+                    20,
+                    21
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    14
+                ]
+            },
+            {
+                "kbID": "P641",
+                "right": [
+                    14
+                ],
+                "left": [
+                    19,
+                    20,
+                    21
+                ]
+            },
+            {
+                "kbID": "P118",
+                "right": [
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "left": [
+                    19,
+                    20,
+                    21
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ]
+            },
+            {
+                "kbID": "P641",
+                "right": [
+                    14
+                ],
+                "left": [
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "In",
+            "1984",
+            ",",
+            "Shirra",
+            "finished",
+            "3rd",
+            "in",
+            "the",
+            "World",
+            "Pairs",
+            "Championship",
+            "with",
+            "Ivan",
+            "Mauger",
+            "at",
+            "the",
+            "Pista",
+            "Speedway",
+            "in",
+            "Lonigo",
+            ",",
+            "Italy",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "1984-01-01",
+                "lexicalInput": "1984-01-01",
+                "namedEntity": false,
+                "tokenpositions": [
+                    1
+                ],
+                "pos": "CD",
+                "numericalValue": 0.0,
+                "dateValue": {
+                    "month": 1,
+                    "day": 1,
+                    "year": 1984
+                },
+                "variable": false,
+                "unique": false,
+                "type": "DATE"
+            },
+            {
+                "kbID": "Q4511568",
+                "lexicalInput": "World Pairs Championship",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8,
+                    9,
+                    10
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q47385",
+                "lexicalInput": "Lonigo",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q38",
+                "lexicalInput": "Italy",
+                "namedEntity": true,
+                "tokenpositions": [
+                    21
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P31",
+                "right": [
+                    8,
+                    9,
+                    10
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    21
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19
+                ],
+                "left": [
+                    8,
+                    9,
+                    10
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    21
+                ],
+                "left": [
+                    8,
+                    9,
+                    10
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    21
+                ],
+                "left": [
+                    19
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Best",
+            "Bet",
+            "is",
+            "a",
+            "2007",
+            "Hong",
+            "Kong",
+            "comedy",
+            "television",
+            "series",
+            "produced",
+            "by",
+            "TVB",
+            "and",
+            "starring",
+            "Michael",
+            "Tse",
+            ",",
+            "Linda",
+            "Chung",
+            ",",
+            "Wayne",
+            "Lai",
+            "and",
+            "Anne",
+            "Heung",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q1195543",
+                "lexicalInput": "TVB",
+                "namedEntity": true,
+                "tokenpositions": [
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q868761",
+                "lexicalInput": "Best Bet",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P272",
+                "right": [
+                    12
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Lataxiena",
+            "is",
+            "a",
+            "genus",
+            "of",
+            "sea",
+            "snail",
+            "s",
+            ",",
+            "marine",
+            "gastropod",
+            "mollusks",
+            "in",
+            "the",
+            "family",
+            "Muricidae",
+            ",",
+            "the",
+            "murex",
+            "snails",
+            "or",
+            "rock",
+            "snails",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q34740",
+                "lexicalInput": "genus",
+                "namedEntity": true,
+                "tokenpositions": [
+                    3
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q35409",
+                "lexicalInput": "family",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q927389",
+                "lexicalInput": "Muricidae",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q6495112",
+                "lexicalInput": "Lataxiena",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    3
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    14
+                ],
+                "left": [
+                    3
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    3
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    15
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "By",
+            "the",
+            "time",
+            "thrash",
+            "metal",
+            "band",
+            "Anthrax",
+            "used",
+            "the",
+            "term",
+            "in",
+            "their",
+            "song",
+            "Caught",
+            "in",
+            "a",
+            "Mosh",
+            ",",
+            "the",
+            "word",
+            "was",
+            "already",
+            "a",
+            "mainstay",
+            "of",
+            "hardcore",
+            "and",
+            "thrash",
+            "scenes",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q483352",
+                "lexicalInput": "thrash metal",
+                "namedEntity": true,
+                "tokenpositions": [
+                    3,
+                    4
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q109871",
+                "lexicalInput": "Anthrax",
+                "namedEntity": true,
+                "tokenpositions": [
+                    6
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q269594",
+                "lexicalInput": "Caught in a Mosh",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13,
+                    14,
+                    15,
+                    16
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    13,
+                    14,
+                    15,
+                    16
+                ],
+                "left": [
+                    3,
+                    4
+                ]
+            },
+            {
+                "kbID": "P136",
+                "right": [
+                    3,
+                    4
+                ],
+                "left": [
+                    6
+                ]
+            },
+            {
+                "kbID": "P175",
+                "right": [
+                    6
+                ],
+                "left": [
+                    13,
+                    14,
+                    15,
+                    16
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "In",
+            "October",
+            "2010",
+            ",",
+            "Bishop",
+            "Brunne",
+            "took",
+            "part",
+            "in",
+            "a",
+            "rally",
+            "against",
+            "racism",
+            "in",
+            "Stockholm",
+            ",",
+            "after",
+            "the",
+            "nationalist",
+            "Sweden",
+            "Democrats",
+            "party",
+            "entered",
+            "the",
+            "Riksdag",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q504069",
+                "lexicalInput": "Sweden Democrats",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19,
+                    20
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1754",
+                "lexicalInput": "Stockholm",
+                "namedEntity": false,
+                "tokenpositions": [
+                    14
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P159",
+                "right": [
+                    14
+                ],
+                "left": [
+                    19,
+                    20
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Bernhard",
+            "Bernd",
+            "D\u00fcrnberger",
+            "(",
+            "born",
+            "17",
+            "September",
+            "1953",
+            "in",
+            "Kirchansch\u00f6ring",
+            ")",
+            "is",
+            "a",
+            "former",
+            "German",
+            "football",
+            "player",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "1953-09-17",
+                "lexicalInput": "1953-09-17",
+                "namedEntity": false,
+                "tokenpositions": [
+                    5,
+                    6,
+                    7
+                ],
+                "pos": "CD",
+                "numericalValue": 0.0,
+                "dateValue": {
+                    "month": 9,
+                    "day": 17,
+                    "year": 1953
+                },
+                "variable": false,
+                "unique": false,
+                "type": "DATE"
+            },
+            {
+                "kbID": "Q265312",
+                "lexicalInput": "Kirchansch\u00f6ring",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q183",
+                "lexicalInput": "German",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    9
+                ],
+                "left": [
+                    5,
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    14
+                ],
+                "left": [
+                    5,
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    14
+                ],
+                "left": [
+                    9
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Her",
+            "novel",
+            "The",
+            "Inheritance",
+            "of",
+            "Loss",
+            "won",
+            "the",
+            "2006",
+            "Man",
+            "Booker",
+            "Prize",
+            "and",
+            "the",
+            "National",
+            "Book",
+            "Critics",
+            "Circle",
+            "Fiction",
+            "Award",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "2006-01-01",
+                "lexicalInput": "2006-01-01",
+                "namedEntity": false,
+                "tokenpositions": [
+                    8
+                ],
+                "pos": "CD",
+                "numericalValue": 0.0,
+                "dateValue": {
+                    "month": 1,
+                    "day": 1,
+                    "year": 2006
+                },
+                "variable": false,
+                "unique": false,
+                "type": "DATE"
+            },
+            {
+                "kbID": "Q2657435",
+                "lexicalInput": "The Inheritance of Loss",
+                "namedEntity": true,
+                "tokenpositions": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q160082",
+                "lexicalInput": "Man Booker Prize",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9,
+                    10,
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q8261",
+                "lexicalInput": "novel",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    9,
+                    10,
+                    11
+                ],
+                "left": [
+                    2,
+                    3,
+                    4,
+                    5
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P577",
+                "right": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    9,
+                    10,
+                    11
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Crixus",
+            ",",
+            "the",
+            "chief",
+            "lieutenant",
+            "of",
+            "Spartacus",
+            "during",
+            "the",
+            "Third",
+            "Servile",
+            "War",
+            "was",
+            "an",
+            "Allobrogian",
+            "Gaul",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q83406",
+                "lexicalInput": "Spartacus",
+                "namedEntity": true,
+                "tokenpositions": [
+                    6
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q194378",
+                "lexicalInput": "Third Servile War",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9,
+                    10,
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P607",
+                "right": [
+                    9,
+                    10,
+                    11
+                ],
+                "left": [
+                    6
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "Renault",
+            "corporation",
+            "was",
+            "founded",
+            "in",
+            "1899",
+            "as",
+            "Soci\u00e9t\u00e9",
+            "Renault",
+            "Fr\u00e8res",
+            "by",
+            "Louis",
+            "Renault",
+            "and",
+            "his",
+            "brothers",
+            "Marcel",
+            "and",
+            "Fernand",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q298766",
+                "lexicalInput": "Louis Renault",
+                "namedEntity": true,
+                "tokenpositions": [
+                    12,
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q505344",
+                "lexicalInput": "Marcel",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q729431",
+                "lexicalInput": "Fernand",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    17
+                ],
+                "left": [
+                    12,
+                    13
+                ]
+            },
+            {
+                "kbID": "P7",
+                "right": [
+                    12,
+                    13
+                ],
+                "left": [
+                    19
+                ]
+            },
+            {
+                "kbID": "P7",
+                "right": [
+                    17
+                ],
+                "left": [
+                    19
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "During",
+            "Alexander",
+            "s",
+            "campaign",
+            "in",
+            "India",
+            ",",
+            "King",
+            "Porus",
+            "(",
+            "Poros",
+            ")",
+            "stated",
+            "the",
+            "king",
+            "of",
+            "Gangaridai",
+            "was",
+            "a",
+            "man",
+            "of",
+            "great",
+            "character",
+            "and",
+            "was",
+            "held",
+            "in",
+            "respect",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q8409",
+                "lexicalInput": "Alexander",
+                "namedEntity": true,
+                "tokenpositions": [
+                    1
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q28935",
+                "lexicalInput": "Porus",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q12097",
+                "lexicalInput": "king",
+                "namedEntity": false,
+                "tokenpositions": [
+                    13,
+                    14
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    8
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P39",
+                "right": [
+                    13,
+                    14
+                ],
+                "left": [
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13,
+                    14
+                ],
+                "left": [
+                    8
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Dhiyana",
+            "Saeed",
+            "was",
+            "born",
+            "in",
+            "Hithadhoo",
+            "(",
+            "todays",
+            "Addu",
+            "City",
+            ")",
+            ",",
+            "Maldives",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q2023266",
+                "lexicalInput": "Hithadhoo",
+                "namedEntity": true,
+                "tokenpositions": [
+                    5
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q4681407",
+                "lexicalInput": "Addu City",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8,
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q826",
+                "lexicalInput": "Maldives",
+                "namedEntity": true,
+                "tokenpositions": [
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    8,
+                    9
+                ],
+                "left": [
+                    5
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    12
+                ],
+                "left": [
+                    5
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    12
+                ],
+                "left": [
+                    8,
+                    9
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Stomatia",
+            "splendidula",
+            "is",
+            "a",
+            "species",
+            "of",
+            "sea",
+            "snail",
+            ",",
+            "a",
+            "marine",
+            "gastropod",
+            "mollusk",
+            "in",
+            "the",
+            "family",
+            "Trochidae",
+            ",",
+            "the",
+            "top",
+            "snails",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q7432",
+                "lexicalInput": "species",
+                "namedEntity": true,
+                "tokenpositions": [
+                    4
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q35409",
+                "lexicalInput": "family",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1285916",
+                "lexicalInput": "Trochidae",
+                "namedEntity": true,
+                "tokenpositions": [
+                    16
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q7618728",
+                "lexicalInput": "Stomatia splendidula",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16
+                ],
+                "left": [
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    15
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16
+                ],
+                "left": [
+                    15
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    16
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "It",
+            "was",
+            "donated",
+            ",",
+            "along",
+            "with",
+            "a",
+            "$",
+            "4",
+            "million",
+            "endowment",
+            ",",
+            "to",
+            "the",
+            "City",
+            "and",
+            "County",
+            "of",
+            "Denver",
+            "by",
+            "cable",
+            "television",
+            "mogul",
+            "Bill",
+            "Daniels",
+            "in",
+            "1998",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q3301053",
+                "lexicalInput": "City and County",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14,
+                    15,
+                    16
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q16554",
+                "lexicalInput": "Denver",
+                "namedEntity": true,
+                "tokenpositions": [
+                    18
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P31",
+                "right": [
+                    14,
+                    15,
+                    16
+                ],
+                "left": [
+                    18
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "He",
+            "then",
+            "made",
+            "a",
+            "quick",
+            "action",
+            "film",
+            "Adimai",
+            "Changili",
+            "(",
+            "1997",
+            ")",
+            "with",
+            "Arjun",
+            ",",
+            "Roja",
+            "and",
+            "Rambha",
+            "in",
+            "the",
+            "leading",
+            "roles",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "1997-01-01",
+                "lexicalInput": "1997-01-01",
+                "namedEntity": false,
+                "tokenpositions": [
+                    10
+                ],
+                "pos": "CD",
+                "numericalValue": 0.0,
+                "dateValue": {
+                    "month": 1,
+                    "day": 1,
+                    "year": 1997
+                },
+                "variable": false,
+                "unique": false,
+                "type": "DATE"
+            },
+            {
+                "kbID": "Q4682850",
+                "lexicalInput": "Adimai Changili",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7,
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3536892",
+                "lexicalInput": "Arjun",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3519791",
+                "lexicalInput": "Rambha",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3520208",
+                "lexicalInput": "Roja",
+                "namedEntity": false,
+                "tokenpositions": [
+                    15
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P161",
+                "right": [
+                    13
+                ],
+                "left": [
+                    7,
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    7,
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    17
+                ],
+                "left": [
+                    7,
+                    8
+                ]
+            },
+            {
+                "kbID": "P577",
+                "right": [
+                    7,
+                    8
+                ],
+                "left": [
+                    10
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13
+                ],
+                "left": [
+                    10
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    10
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    17
+                ],
+                "left": [
+                    10
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    13
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    17
+                ],
+                "left": [
+                    13
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15
+                ],
+                "left": [
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Upholstery",
+            "is",
+            "the",
+            "work",
+            "of",
+            "providing",
+            "furniture",
+            ",",
+            "especially",
+            "seat",
+            "s",
+            ",",
+            "with",
+            "padding",
+            ",",
+            "spring",
+            "s",
+            ",",
+            "webbing",
+            ",",
+            "and",
+            "fabric",
+            "or",
+            "leather",
+            "covers",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q14745",
+                "lexicalInput": "furniture",
+                "namedEntity": true,
+                "tokenpositions": [
+                    6
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q15026",
+                "lexicalInput": "seat",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q386724",
+                "lexicalInput": "work",
+                "namedEntity": false,
+                "tokenpositions": [
+                    2,
+                    3
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    2,
+                    3
+                ],
+                "left": [
+                    6
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    2,
+                    3
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P31",
+                "right": [
+                    6
+                ],
+                "left": [
+                    9
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Later",
+            "films",
+            "for",
+            "other",
+            "studios",
+            "included",
+            "Bob",
+            "Hope",
+            "s",
+            "Call",
+            "Me",
+            "Bwana",
+            ",",
+            "Frank",
+            "Sinatra",
+            "s",
+            "The",
+            "Detective",
+            ",",
+            "Sidney",
+            "Poitier",
+            "s",
+            "They",
+            "Call",
+            "Me",
+            "Mister",
+            "Tibbs",
+            "!",
+            "and",
+            "Elvis",
+            "Presley",
+            "s",
+            "Follow",
+            "That",
+            "Dream",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q94081",
+                "lexicalInput": "Bob Hope",
+                "namedEntity": true,
+                "tokenpositions": [
+                    6,
+                    7
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q5021551",
+                "lexicalInput": "Call Me Bwana",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9,
+                    10,
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q40912",
+                "lexicalInput": "Frank Sinatra",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13,
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q925809",
+                "lexicalInput": "The Detective",
+                "namedEntity": true,
+                "tokenpositions": [
+                    16,
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q104049",
+                "lexicalInput": "Sidney Poitier",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19,
+                    20
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q2437383",
+                "lexicalInput": "They Call Me Mister Tibbs!",
+                "namedEntity": true,
+                "tokenpositions": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q303",
+                "lexicalInput": "Elvis Presley",
+                "namedEntity": true,
+                "tokenpositions": [
+                    29,
+                    30
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1953523",
+                "lexicalInput": "Follow That Dream",
+                "namedEntity": true,
+                "tokenpositions": [
+                    32,
+                    33,
+                    34
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    9,
+                    10,
+                    11
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13,
+                    14
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16,
+                    17
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19,
+                    20
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    29,
+                    30
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    6,
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13,
+                    14
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16,
+                    17
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19,
+                    20
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    29,
+                    30
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19,
+                    20
+                ],
+                "left": [
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "left": [
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    29,
+                    30
+                ],
+                "left": [
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P161",
+                "right": [
+                    13,
+                    14
+                ],
+                "left": [
+                    16,
+                    17
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19,
+                    20
+                ],
+                "left": [
+                    16,
+                    17
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ],
+                "left": [
+                    16,
+                    17
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    29,
+                    30
+                ],
+                "left": [
+                    16,
+                    17
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    16,
+                    17
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    29,
+                    30
+                ],
+                "left": [
+                    19,
+                    20
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    19,
+                    20
+                ]
+            },
+            {
+                "kbID": "P161",
+                "right": [
+                    19,
+                    20
+                ],
+                "left": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    29,
+                    30
+                ],
+                "left": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    32,
+                    33,
+                    34
+                ],
+                "left": [
+                    29,
+                    30
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Thirsk",
+            "Racecourse",
+            "is",
+            "a",
+            "thoroughbred",
+            "horse",
+            "racing",
+            "venue",
+            "located",
+            "in",
+            "Thirsk",
+            ",",
+            "North",
+            "Yorkshire",
+            ",",
+            "England",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q641274",
+                "lexicalInput": "Thirsk",
+                "namedEntity": true,
+                "tokenpositions": [
+                    0
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q21",
+                "lexicalInput": "England",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P131",
+                "right": [
+                    15
+                ],
+                "left": [
+                    0
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Megan",
+            "Ellison",
+            "would",
+            "produce",
+            "and",
+            "finance",
+            "through",
+            "Annapurna",
+            "Pictures",
+            ",",
+            "with",
+            "Christine",
+            "Vachon",
+            "also",
+            "producing",
+            "through",
+            "Killer",
+            "Films",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q1840340",
+                "lexicalInput": "Megan Ellison",
+                "namedEntity": true,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q16242963",
+                "lexicalInput": "Annapurna Pictures",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7,
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P112",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    7,
+                    8
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "His",
+            "2003",
+            "album",
+            ",",
+            "Young",
+            "Roscoe",
+            "Philaphornia",
+            ",",
+            "appeared",
+            "on",
+            "Billboards",
+            "Billboard",
+            "200",
+            "at",
+            "#",
+            "148",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q485240",
+                "lexicalInput": "Billboards",
+                "namedEntity": true,
+                "tokenpositions": [
+                    10
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q188819",
+                "lexicalInput": "Billboard 200",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11,
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P123",
+                "right": [
+                    10
+                ],
+                "left": [
+                    11,
+                    12
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Gordon",
+            "Brown",
+            "(",
+            "30",
+            "June",
+            "1933",
+            "August",
+            "2005",
+            ")",
+            "was",
+            "an",
+            "English",
+            "former",
+            "footballer",
+            "who",
+            "played",
+            "as",
+            "an",
+            "inside",
+            "forward",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q21",
+                "lexicalInput": "English",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q2736",
+                "lexicalInput": "footballer",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q280658",
+                "lexicalInput": "inside forward",
+                "namedEntity": true,
+                "tokenpositions": [
+                    18,
+                    19
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q8870414",
+                "lexicalInput": "Gordon Brown",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P641",
+                "right": [
+                    13
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P413",
+                "right": [
+                    18,
+                    19
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    13
+                ],
+                "left": [
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    18,
+                    19
+                ],
+                "left": [
+                    11
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    18,
+                    19
+                ],
+                "left": [
+                    13
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "Last",
+            "Supper",
+            "of",
+            "Jesus",
+            "and",
+            "the",
+            "Twelve",
+            "Apostles",
+            "has",
+            "been",
+            "a",
+            "popular",
+            "subject",
+            "in",
+            "Christian",
+            "art",
+            ",",
+            "often",
+            "as",
+            "part",
+            "of",
+            "a",
+            "cycle",
+            "showing",
+            "the",
+            "Life",
+            "of",
+            "Christ",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q51633",
+                "lexicalInput": "Last Supper",
+                "namedEntity": true,
+                "tokenpositions": [
+                    1,
+                    2
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q302",
+                "lexicalInput": "Jesus",
+                "namedEntity": true,
+                "tokenpositions": [
+                    4
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P1344",
+                "right": [
+                    1,
+                    2
+                ],
+                "left": [
+                    4
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Lianovergi",
+            "(",
+            ")",
+            "is",
+            "a",
+            "village",
+            "in",
+            "Platy",
+            "municipal",
+            "unit",
+            "in",
+            "eastern",
+            "Imathia",
+            ",",
+            "Greece",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q2098876",
+                "lexicalInput": "Platy",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q207840",
+                "lexicalInput": "Imathia",
+                "namedEntity": true,
+                "tokenpositions": [
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q41",
+                "lexicalInput": "Greece",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q15242311",
+                "lexicalInput": "Lianovergi",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P17",
+                "right": [
+                    14
+                ],
+                "left": [
+                    0
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    12
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    14
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    12
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    14
+                ],
+                "left": [
+                    12
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Austj\u00f8kulen",
+            "is",
+            "a",
+            "glacier",
+            "in",
+            "S\u00f8rkapp",
+            "Land",
+            "at",
+            "Spitsbergen",
+            ",",
+            "Svalbard",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q7666629",
+                "lexicalInput": "S\u00f8rkapp Land",
+                "namedEntity": true,
+                "tokenpositions": [
+                    5,
+                    6
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q21162",
+                "lexicalInput": "Spitsbergen",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q25231",
+                "lexicalInput": "Svalbard",
+                "namedEntity": true,
+                "tokenpositions": [
+                    10
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    8
+                ],
+                "left": [
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    10
+                ],
+                "left": [
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P361",
+                "right": [
+                    10
+                ],
+                "left": [
+                    8
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "In",
+            "June",
+            "2002",
+            "Gore",
+            "Verbinski",
+            "signed",
+            "on",
+            "to",
+            "direct",
+            "The",
+            "Curse",
+            "of",
+            "the",
+            "Black",
+            "Pearl",
+            ",",
+            "and",
+            "Johnny",
+            "Depp",
+            "and",
+            "Geoffrey",
+            "Rush",
+            "signed",
+            "on",
+            "the",
+            "following",
+            "month",
+            "to",
+            "star",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q295463",
+                "lexicalInput": "Gore Verbinski",
+                "namedEntity": true,
+                "tokenpositions": [
+                    3,
+                    4
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q46717",
+                "lexicalInput": "The Curse of the Black Pearl",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q37175",
+                "lexicalInput": "Johnny Depp",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17,
+                    18
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q166272",
+                "lexicalInput": "Geoffrey Rush",
+                "namedEntity": true,
+                "tokenpositions": [
+                    20,
+                    21
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    17,
+                    18
+                ],
+                "left": [
+                    3,
+                    4
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21
+                ],
+                "left": [
+                    3,
+                    4
+                ]
+            },
+            {
+                "kbID": "P57",
+                "right": [
+                    3,
+                    4
+                ],
+                "left": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    17,
+                    18
+                ],
+                "left": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P161",
+                "right": [
+                    20,
+                    21
+                ],
+                "left": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Born",
+            "in",
+            "London",
+            ",",
+            "Hoffman",
+            "studied",
+            "at",
+            "the",
+            "Coopers",
+            "Company",
+            "and",
+            "Coborn",
+            "School",
+            "in",
+            "Stepney",
+            "(",
+            "now",
+            "in",
+            "Upminster",
+            ")",
+            ",",
+            "then",
+            "the",
+            "Warehousemen",
+            ",",
+            "Clerks",
+            "and",
+            "Drapers",
+            "School",
+            "at",
+            "Purley",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q84",
+                "lexicalInput": "London",
+                "namedEntity": true,
+                "tokenpositions": [
+                    2
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q4500480",
+                "lexicalInput": "Hoffman",
+                "namedEntity": false,
+                "tokenpositions": [
+                    4
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P840",
+                "right": [
+                    2
+                ],
+                "left": [
+                    4
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "P.",
+            "tellea",
+            "can",
+            "be",
+            "found",
+            "in",
+            "the",
+            "Gulf",
+            "of",
+            "Mexico",
+            ",",
+            "ranging",
+            "from",
+            "Texas",
+            "to",
+            "western",
+            "Florida",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q12630",
+                "lexicalInput": "Gulf of Mexico",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7,
+                    8,
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1439",
+                "lexicalInput": "Texas",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q812",
+                "lexicalInput": "Florida",
+                "namedEntity": true,
+                "tokenpositions": [
+                    16
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    13
+                ],
+                "left": [
+                    7,
+                    8,
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16
+                ],
+                "left": [
+                    13
+                ]
+            },
+            {
+                "kbID": "P206",
+                "right": [
+                    7,
+                    8,
+                    9
+                ],
+                "left": [
+                    16
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Rufus",
+            "B.",
+            "Nalley",
+            "and",
+            "Richard",
+            "Von",
+            "Albade",
+            "Gammon",
+            "were",
+            "both",
+            "in",
+            "the",
+            "backfield",
+            ",",
+            "with",
+            "Gammon",
+            "at",
+            "quarterback",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q622747",
+                "lexicalInput": "quarterback",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q4839616",
+                "lexicalInput": "backfield",
+                "namedEntity": false,
+                "tokenpositions": [
+                    11,
+                    12
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P361",
+                "right": [
+                    11,
+                    12
+                ],
+                "left": [
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "La\u010dja",
+            "Vas",
+            "is",
+            "a",
+            "village",
+            "on",
+            "the",
+            "left",
+            "bank",
+            "of",
+            "the",
+            "Dreta",
+            "River",
+            "in",
+            "the",
+            "Municipality",
+            "of",
+            "Nazarje",
+            "in",
+            "Slovenia",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q3435786",
+                "lexicalInput": "Dreta River",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11,
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q954987",
+                "lexicalInput": "Municipality of Nazarje",
+                "namedEntity": true,
+                "tokenpositions": [
+                    15,
+                    16,
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q215",
+                "lexicalInput": "Slovenia",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q2603670",
+                "lexicalInput": "La\u010dja Vas",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P17",
+                "right": [
+                    19
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    11,
+                    12
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    15,
+                    16,
+                    17
+                ],
+                "left": [
+                    11,
+                    12
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    19
+                ],
+                "left": [
+                    11,
+                    12
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    15,
+                    16,
+                    17
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19
+                ],
+                "left": [
+                    15,
+                    16,
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "20th",
+            "parallel",
+            "north",
+            "is",
+            "a",
+            "circle",
+            "of",
+            "latitude",
+            "that",
+            "is",
+            "20",
+            "degrees",
+            "north",
+            "of",
+            "the",
+            "Earths",
+            "equatorial",
+            "plane",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q146591",
+                "lexicalInput": "circle of latitude",
+                "namedEntity": true,
+                "tokenpositions": [
+                    6,
+                    7,
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q23538",
+                "lexicalInput": "equatorial plane",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17,
+                    18
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P31",
+                "right": [
+                    6,
+                    7,
+                    8
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "On",
+            "17",
+            "January",
+            "1995",
+            ",",
+            "it",
+            "was",
+            "rededicated",
+            "by",
+            "the",
+            "Archbishop",
+            "of",
+            "Canterbury",
+            ",",
+            "and",
+            "officially",
+            "reopened",
+            "by",
+            "Queen",
+            "Elizabeth",
+            "II",
+            ",",
+            "accompanied",
+            "by",
+            "the",
+            "Duke",
+            "of",
+            "Edinburgh",
+            ",",
+            "on",
+            "8",
+            "March",
+            "1995",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q9682",
+                "lexicalInput": "Queen Elizabeth II",
+                "namedEntity": true,
+                "tokenpositions": [
+                    18,
+                    19,
+                    20
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q80976",
+                "lexicalInput": "Duke of Edinburgh",
+                "namedEntity": true,
+                "tokenpositions": [
+                    25,
+                    26,
+                    27
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P26",
+                "right": [
+                    18,
+                    19,
+                    20
+                ],
+                "left": [
+                    25,
+                    26,
+                    27
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "One",
+            "Park",
+            "Place",
+            "is",
+            "a",
+            "518",
+            "ft",
+            "(",
+            "158",
+            "m",
+            ")",
+            "tall",
+            "apartment",
+            "building",
+            "located",
+            "adjacent",
+            "to",
+            "Discovery",
+            "Green",
+            "park",
+            "in",
+            "downtown",
+            "Houston",
+            ",",
+            "Texas",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q5281916",
+                "lexicalInput": "Discovery Green",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17,
+                    18
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q16555",
+                "lexicalInput": "Houston",
+                "namedEntity": true,
+                "tokenpositions": [
+                    22
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1439",
+                "lexicalInput": "Texas",
+                "namedEntity": true,
+                "tokenpositions": [
+                    24
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3352624",
+                "lexicalInput": "One Park Place",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1,
+                    2
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P131",
+                "right": [
+                    24
+                ],
+                "left": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1,
+                    2
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            },
+            {
+                "kbID": "P131",
+                "right": [
+                    22
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    24
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1,
+                    2
+                ],
+                "left": [
+                    22
+                ]
+            },
+            {
+                "kbID": "P131",
+                "right": [
+                    24
+                ],
+                "left": [
+                    22
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "The",
+            "movies",
+            "final",
+            "game",
+            "was",
+            "shot",
+            "in",
+            "the",
+            "same",
+            "building",
+            "that",
+            "hosted",
+            "the",
+            "1954",
+            "Indiana",
+            "final",
+            ",",
+            "Butler",
+            "University",
+            "s",
+            "Hinkle",
+            "Fieldhouse",
+            "(",
+            "called",
+            "Butler",
+            "Fieldhouse",
+            "in",
+            "1954",
+            ")",
+            "in",
+            "Indianapolis",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q1017974",
+                "lexicalInput": "Butler University",
+                "namedEntity": true,
+                "tokenpositions": [
+                    17,
+                    18
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3785713",
+                "lexicalInput": "Hinkle Fieldhouse",
+                "namedEntity": true,
+                "tokenpositions": [
+                    20,
+                    21
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q6346",
+                "lexicalInput": "Indianapolis",
+                "namedEntity": true,
+                "tokenpositions": [
+                    30
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            },
+            {
+                "kbID": "P131",
+                "right": [
+                    30
+                ],
+                "left": [
+                    17,
+                    18
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    30
+                ],
+                "left": [
+                    20,
+                    21
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Oxyg\u00e8ne",
+            "(",
+            ")",
+            "is",
+            "an",
+            "album",
+            "of",
+            "instrumental",
+            "electronic",
+            "music",
+            "composed",
+            ",",
+            "produced",
+            ",",
+            "and",
+            "performed",
+            "by",
+            "the",
+            "French",
+            "composer",
+            "Jean",
+            "Michel",
+            "Jarre",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q482994",
+                "lexicalInput": "album",
+                "namedEntity": true,
+                "tokenpositions": [
+                    5
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q639197",
+                "lexicalInput": "instrumental",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q9778",
+                "lexicalInput": "electronic music",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8,
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q104326",
+                "lexicalInput": "Jean Michel Jarre",
+                "namedEntity": true,
+                "tokenpositions": [
+                    20,
+                    21,
+                    22
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q15661",
+                "lexicalInput": "Oxyg\u00e8ne",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P31",
+                "right": [
+                    5
+                ],
+                "left": [
+                    0
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    7
+                ],
+                "left": [
+                    5
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    8,
+                    9
+                ],
+                "left": [
+                    5
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21,
+                    22
+                ],
+                "left": [
+                    5
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    8,
+                    9
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    20,
+                    21,
+                    22
+                ],
+                "left": [
+                    7
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    8,
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0
+                ],
+                "left": [
+                    20,
+                    21,
+                    22
+                ]
+            },
+            {
+                "kbID": "P136",
+                "right": [
+                    8,
+                    9
+                ],
+                "left": [
+                    20,
+                    21,
+                    22
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Alberto",
+            "Camerini",
+            "was",
+            "born",
+            "in",
+            "S\u00e3o",
+            "Paulo",
+            ",",
+            "Brazil",
+            "of",
+            "Italian",
+            "parents",
+            "who",
+            "had",
+            "moved",
+            "to",
+            "South",
+            "America",
+            "a",
+            "few",
+            "years",
+            "earlier",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q174",
+                "lexicalInput": "S\u00e3o Paulo",
+                "namedEntity": true,
+                "tokenpositions": [
+                    5,
+                    6
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q155",
+                "lexicalInput": "Brazil",
+                "namedEntity": true,
+                "tokenpositions": [
+                    8
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q18",
+                "lexicalInput": "South America",
+                "namedEntity": true,
+                "tokenpositions": [
+                    16,
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q3608180",
+                "lexicalInput": "Alberto Camerini",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P19",
+                "right": [
+                    5,
+                    6
+                ],
+                "left": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    8
+                ],
+                "left": [
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16,
+                    17
+                ],
+                "left": [
+                    5,
+                    6
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    16,
+                    17
+                ],
+                "left": [
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    0,
+                    1
+                ],
+                "left": [
+                    16,
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Samuel",
+            "Oben",
+            "Ojong",
+            "(",
+            "born",
+            "August",
+            "6",
+            ",",
+            "1980",
+            "in",
+            "Buea",
+            ")",
+            "is",
+            "a",
+            "Cameroon",
+            "ian",
+            "professional",
+            "football",
+            "player",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "1980-08-06",
+                "lexicalInput": "1980-08-06",
+                "namedEntity": false,
+                "tokenpositions": [
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "pos": "CD",
+                "numericalValue": 0.0,
+                "dateValue": {
+                    "month": 8,
+                    "day": 6,
+                    "year": 1980
+                },
+                "variable": false,
+                "unique": false,
+                "type": "DATE"
+            },
+            {
+                "kbID": "Q312209",
+                "lexicalInput": "Buea",
+                "namedEntity": true,
+                "tokenpositions": [
+                    10
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1009",
+                "lexicalInput": "Cameroon",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    10
+                ],
+                "left": [
+                    5,
+                    6,
+                    7,
+                    8
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    14
+                ],
+                "left": [
+                    5,
+                    6,
+                    7,
+                    8
+                ]
+            },
+            {
+                "kbID": "P17",
+                "right": [
+                    14
+                ],
+                "left": [
+                    10
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "This",
+            "marine",
+            "species",
+            "occurs",
+            "in",
+            "the",
+            "Indian",
+            "Ocean",
+            "(",
+            "Tanzania",
+            ",",
+            "Mascarene",
+            "Islands",
+            ")",
+            "and",
+            "eastwards",
+            "as",
+            "far",
+            "as",
+            "Indonesia",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q924",
+                "lexicalInput": "Tanzania",
+                "namedEntity": true,
+                "tokenpositions": [
+                    9
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q205695",
+                "lexicalInput": "Mascarene Islands",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11,
+                    12
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q252",
+                "lexicalInput": "Indonesia",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q1239",
+                "lexicalInput": "Indian Ocean",
+                "namedEntity": false,
+                "tokenpositions": [
+                    5,
+                    6,
+                    7
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P0",
+                "right": [
+                    5,
+                    6,
+                    7
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    11,
+                    12
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19
+                ],
+                "left": [
+                    9
+                ]
+            },
+            {
+                "kbID": "P706",
+                "right": [
+                    5,
+                    6,
+                    7
+                ],
+                "left": [
+                    11,
+                    12
+                ]
+            },
+            {
+                "kbID": "P0",
+                "right": [
+                    19
+                ],
+                "left": [
+                    11,
+                    12
+                ]
+            },
+            {
+                "kbID": "P1589",
+                "right": [
+                    5,
+                    6,
+                    7
+                ],
+                "left": [
+                    19
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Nils",
+            "Larsen",
+            "Glacier",
+            "(",
+            ")",
+            "is",
+            "a",
+            "glacier",
+            "descending",
+            "to",
+            "the",
+            "west",
+            "coast",
+            "of",
+            "Peter",
+            "I",
+            "Island",
+            "close",
+            "northward",
+            "of",
+            "Norvegia",
+            "Bay",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q35666",
+                "lexicalInput": "glacier",
+                "namedEntity": true,
+                "tokenpositions": [
+                    7
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q7037344",
+                "lexicalInput": "Nils Larsen Glacier",
+                "namedEntity": false,
+                "tokenpositions": [
+                    0,
+                    1,
+                    2
+                ],
+                "pos": "NP",
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P31",
+                "right": [
+                    7
+                ],
+                "left": [
+                    0,
+                    1,
+                    2
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "Gamma",
+            "Iota",
+            "Sigma",
+            "(",
+            "\u0393\u0399\u03a3",
+            ")",
+            "is",
+            "a",
+            "college",
+            "academic",
+            "fraternity",
+            ",",
+            "founded",
+            "on",
+            "April",
+            "16",
+            ",",
+            "1966",
+            "at",
+            "Ohio",
+            "State",
+            "University",
+            ",",
+            "Columbus",
+            ",",
+            "Ohio",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q309331",
+                "lexicalInput": "Ohio State University",
+                "namedEntity": true,
+                "tokenpositions": [
+                    19,
+                    20,
+                    21
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q16567",
+                "lexicalInput": "Columbus, Ohio",
+                "namedEntity": true,
+                "tokenpositions": [
+                    23,
+                    24,
+                    25
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P131",
+                "right": [
+                    23,
+                    24,
+                    25
+                ],
+                "left": [
+                    19,
+                    20,
+                    21
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "In",
+            "the",
+            "early",
+            "Meiji",
+            "period",
+            ",",
+            "blast",
+            "furnaces",
+            "were",
+            "constructed",
+            "at",
+            "sites",
+            "such",
+            "as",
+            "Kamaishi",
+            "in",
+            "Iwate",
+            "Prefecture",
+            ",",
+            "near",
+            "deposits",
+            "of",
+            "iron",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q329790",
+                "lexicalInput": "Kamaishi",
+                "namedEntity": true,
+                "tokenpositions": [
+                    14
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q48326",
+                "lexicalInput": "Iwate Prefecture",
+                "namedEntity": true,
+                "tokenpositions": [
+                    16,
+                    17
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P131",
+                "right": [
+                    16,
+                    17
+                ],
+                "left": [
+                    14
+                ]
+            }
+        ]
+    },
+    {
+        "tokens": [
+            "On",
+            "March",
+            "3",
+            ",",
+            "3012",
+            "was",
+            "third",
+            "in",
+            "World",
+            "Cup",
+            "in",
+            "Lahti",
+            ",",
+            "Finland",
+            "in",
+            "team",
+            "competition",
+            "with",
+            "Maciej",
+            "Kot",
+            ",",
+            "Kamil",
+            "Stoch",
+            "and",
+            "Klemens",
+            "Mura\u0144ka",
+            "."
+        ],
+        "vertexSet": [
+            {
+                "kbID": "Q28911",
+                "lexicalInput": "Lahti",
+                "namedEntity": true,
+                "tokenpositions": [
+                    11
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            },
+            {
+                "kbID": "Q33",
+                "lexicalInput": "Finland",
+                "namedEntity": true,
+                "tokenpositions": [
+                    13
+                ],
+                "numericalValue": 0.0,
+                "variable": false,
+                "unique": false,
+                "type": "LEXICAL"
+            }
+        ],
+        "edgeSet": [
+            {
+                "kbID": "P17",
+                "right": [
+                    13
+                ],
+                "left": [
+                    11
+                ]
+            }
+        ]
+    }
+]

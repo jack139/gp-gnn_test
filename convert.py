@@ -1,10 +1,18 @@
 # 转换 CMeIE 数据到图数据
-
+import os
 import json
 from bert4keras.tokenizers import Tokenizer
 
 schemas_path = 'data/CMeIE/53_schemas.jsonl'
-data_path = 'data/CMeIE/example_gold.jsonl'
+P_filepath = "data/P_with_labels.txt"
+Q_filepath = "data/Q_with_labels.txt"
+
+#data_path = 'data/CMeIE/CMeIE_dev.jsonl'
+#newfile_path = 'data/cmeie_dev.json'
+
+data_path = 'data/CMeIE/CMeIE_train.jsonl'
+newfile_path = 'data/cmeie_train.json'
+
 
 maxlen = None # 不限长度
 dict_path = '../../nlp/nlp_model/chinese_bert_L-12_H-768_A-12/vocab.txt'
@@ -28,21 +36,40 @@ def search(pattern, sequence):
             return i
     return -1
 
+# 加载已有P/Q文件
+p2id, id2p = {}, {}
+q2id, id2q = {}, {}
+
+if os.path.exists(P_filepath):
+    with open(P_filepath) as f:
+        for l in f:
+            if len(l)==0:
+                continue
+            pid, P = l.split()
+            id2p[pid] = P
+            p2id[P] = pid
+
+if os.path.exists(Q_filepath):
+    with open(Q_filepath) as f:
+        for l in f:
+            if len(l)==0:
+                continue
+            qid, Q = l.split()
+            id2q[qid] = Q
+            q2id[Q] = qid
 
 # 加载关系
-p2id, id2p = {}, {}
 with open(schemas_path) as f:
     for l in f:
         l = json.loads(l)
         if l['predicate'] not in p2id:
+            print("append P:", l['predicate'])
             id2p[f"P{len(p2id)}"] = l['predicate']
             p2id[l['predicate']] = f"P{len(p2id)}"
 
 
 # 转换数据
 D = []
-q2id, id2q = {}, {}
-
 with open(data_path, encoding='utf-8') as f:
     for l in f:
         l = json.loads(l)
@@ -51,6 +78,7 @@ with open(data_path, encoding='utf-8') as f:
         ids = tokenizer.ids_to_tokens(token_ids)
         
         new_item = {
+            #"tokens" : [Tokenizer.stem(i) for i in ids], # 去掉前缀 '##'
             "tokens" : ids,
             "vertexSet" : [],
             "edgeSet" : []
@@ -63,16 +91,18 @@ with open(data_path, encoding='utf-8') as f:
 
             p_kbID = p2id[p]
 
-            # 查找并转换token
-            s = tokenizer.encode(s)[0][1:-1]
-            o = tokenizer.encode(o)[0][1:-1]
+            # 查找并转换token, 使用token查找，因为token不一定是单字符
+            s = tokenizer.encode(s)[0]
+            o = tokenizer.encode(o)[0]
             s_idx = search(s, token_ids)
             o_idx = search(o, token_ids)
             if s_idx != -1 and o_idx != -1:
-                s = token_ids[s_idx : s_idx + len(s) - 1]
-                o = token_ids[o_idx : o_idx + len(o) - 1]
+                s = token_ids[s_idx : s_idx + len(s)]
+                o = token_ids[o_idx : o_idx + len(o)]
                 s_ids = tokenizer.ids_to_tokens(s)
                 o_ids = tokenizer.ids_to_tokens(o)
+                #s_str = ''.join([Tokenizer.stem(i) for i in s_ids]) # 去掉前缀 '##'
+                #o_str = ''.join([Tokenizer.stem(i) for i in o_ids]) # 去掉前缀 '##'
                 s_str = ''.join(s_ids)
                 o_str = ''.join(o_ids)
             else:
@@ -81,12 +111,14 @@ with open(data_path, encoding='utf-8') as f:
 
             # 生成 Q 标记
             if s_str not in q2id:
+                print("append Q:", s_str)
                 id2q[f"Q{len(q2id)}"] = s_str
                 q2id[s_str] = f"Q{len(q2id)}"
 
             s_kbID = q2id[s_str]
 
             if o_str not in q2id:
+                print("append Q:", o_str)
                 id2q[f"Q{len(q2id)}"] = o_str
                 q2id[o_str] = f"Q{len(q2id)}"
 
@@ -104,7 +136,7 @@ with open(data_path, encoding='utf-8') as f:
                     "kbID": s_kbID,
                     "lexicalInput": s_str,
                     "namedEntity": True,
-                    "tokenpositions": [ s_idx ],
+                    "tokenpositions": [ i for i in range(s_idx, s_idx + len(s)) ],
                     "numericalValue": 0.0,
                     "variable": False,
                     "unique": False,
@@ -116,7 +148,7 @@ with open(data_path, encoding='utf-8') as f:
                     "kbID": o_kbID,
                     "lexicalInput": o_str,
                     "namedEntity": True,
-                    "tokenpositions": [ o_idx ],
+                    "tokenpositions": [ i for i in range(o_idx, o_idx + len(o)) ],
                     "numericalValue": 0.0,
                     "variable": False,
                     "unique": False,
@@ -126,19 +158,22 @@ with open(data_path, encoding='utf-8') as f:
             # 添加 关系到 edgeSet
             new_item["edgeSet"].append({
                 "kbID": p_kbID,
-                "right": [ s_idx ],
-                "left": [ o_idx ]
+                "right": [ i for i in range(s_idx, s_idx + len(s)) ],
+                "left": [ i for i in range(o_idx, o_idx + len(o)) ]
             })
 
         D.append(new_item)
 
-with open("data/convert.json", "w", encoding='utf-8') as f:
-    json.dump(D, f, indent=4, ensure_ascii=False)
+# 保存文件
+with open(newfile_path, "w", encoding='utf-8') as f:
+    json.dump(D, f, 
+        #indent=4, 
+        ensure_ascii=False)
 
-with open("data/P_with_labels.txt", "w", encoding='utf-8') as f:
+with open(P_filepath, "w", encoding='utf-8') as f:
     for k in id2p.keys():
         f.write(f"{k}\t{id2p[k]}\n")
 
-with open("data/Q_with_labels.txt", "w", encoding='utf-8') as f:
+with open(Q_filepath, "w", encoding='utf-8') as f:
     for k in id2q.keys():
         f.write(f"{k}\t{id2q[k]}\n")

@@ -3,7 +3,7 @@
 #
 # Author: Hao Zhu (ProKil.github.io)
 #
-
+import pickle
 from utils import evaluation_utils, embedding_utils
 from semanticgraph import io
 from parsing import legacy_sp_models as sp_models
@@ -121,8 +121,16 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     with open(save_folder + model_name + ".property2idx", 'w') as outfile:
         outfile.write(str(property2idx))
 
-    with open("data/test_property2idx.json", "w", encoding='utf-8') as f:
+    ###### 测试输出
+    with open("data/test-property2idx.json", "w", encoding='utf-8') as f:
         json.dump(property2idx, f, indent=4, ensure_ascii=False)
+
+    #sentences_matrix, entity_matrix, y_matrix, entity_cnt = val_as_indices
+    with open("data/test-train_as_indices.pkl", "wb") as f:
+        pickle.dump(val_as_indices, f)
+
+    ######
+
 
     print("Training the model")
 

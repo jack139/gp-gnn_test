@@ -237,26 +237,27 @@ def to_indices_with_real_entities_and_entity_nums_with_vertex_padding(graphs, wo
                 for i in range(0, len(g['edgeSet']), MAX_EDGES_PER_GRAPH):
                     graphs_to_process.append({"tokens": g["tokens"], "edgeSet": g["edgeSet"][i:i+ MAX_EDGES_PER_GRAPH]})
     graphs = graphs_to_process
-    sentences_matrix = np.zeros((len(graphs), max_sent_len), dtype="int32")
+    sentences_matrix = np.zeros((len(graphs), max_sent_len), dtype="int32")  # 句子的词向量索引
     entity_matrix = np.zeros((len(graphs), MAX_EDGES_PER_GRAPH, max_sent_len), dtype="int8")
     y_matrix = np.zeros((len(graphs), MAX_EDGES_PER_GRAPH), dtype="int16")
-    entity_cnt = []
+    entity_cnt = [] # 节点数量
     for index, g in enumerate(tqdm.tqdm(graphs, ascii=True)):
         try:    
             entity_cnt.append(len(g["vertexSet"]))    
         except:
             continue
-        token_ids = embedding_utils.get_idx_sequence(g["tokens"], word2idx)
+        token_ids = embedding_utils.get_idx_sequence(g["tokens"], word2idx) # 句子的词向量索引
         if len(token_ids) > max_sent_len:
             token_ids = token_ids[:max_sent_len]
-        sentences_matrix[index, :len(token_ids)] = token_ids
-        for j, edge in enumerate(g["edgeSet"][:MAX_EDGES_PER_GRAPH]):
+        sentences_matrix[index, :len(token_ids)] = token_ids # 句子向量索引 矩阵
+        for j, edge in enumerate(g["edgeSet"][:MAX_EDGES_PER_GRAPH]): # 处理 边
             new_j = calculate_order_conversion(j, len(g["vertexSet"]))
+            # 点 边 连接信息
             entity_matrix[index, new_j, :len(token_ids)] = \
                 [m for _, m in graph_utils.get_entity_indexed_vector(token_ids, edge, mode="mark-bi")]
             _, property_kbid, _ = graph_utils.edge_to_kb_ids(edge, g)
             property_kbid = property2idx.get(property_kbid, property2idx[embedding_utils.unknown])
-            y_matrix[index, new_j] = property_kbid
+            y_matrix[index, new_j] = property_kbid # 结果矩阵？ 对应边
     entity_cnt = np.array(entity_cnt, dtype=np.int32)        
          
     return sentences_matrix, entity_matrix, y_matrix, entity_cnt

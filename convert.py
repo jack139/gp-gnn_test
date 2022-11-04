@@ -3,15 +3,15 @@ import os
 import json
 from bert4keras.tokenizers import Tokenizer
 
-schemas_path = 'data/CMeIE/53_schemas.jsonl'
+schemas_path = 'resources/CMeIE/53_schemas.jsonl'
 P_filepath = "data/P_with_labels.txt"
 Q_filepath = "data/Q_with_labels.txt"
 
-#data_path = 'data/CMeIE/CMeIE_dev.jsonl'
-#newfile_path = 'data/cmeie_dev.json'
 
-data_path = 'data/CMeIE/CMeIE_train.jsonl'
+data_path = 'resources/CMeIE/CMeIE_train.jsonl'
 newfile_path = 'data/cmeie_train.json'
+#data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
+#newfile_path = 'data/cmeie_dev.json'
 
 
 maxlen = None # 不限长度
@@ -24,6 +24,7 @@ tokenizer = Tokenizer(dict_path, do_lower_case=True,
 # [8774, 118, 8140, 118, 8133, 124, 119, 2857, 2569, 6814, 1343, 4638, 6121, 711, 8039]
 # >>> tokenizer.ids_to_tokens(token_ids)
 # ['1978', '-', '03', '-', '23', '3', '.', '担', '忧', '过', '去', '的', '行', '为', '；']
+
 
 P_nn = Q_nn = 0
 
@@ -190,3 +191,5 @@ if Q_nn > 0:
             f.write(f"{k}\t{id2q[k]}\n")
 
     print(Q_filepath, "saved.")
+
+print(len(D), len(id2p), len(id2q))

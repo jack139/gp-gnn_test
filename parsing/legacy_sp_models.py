@@ -143,7 +143,7 @@ def to_indices_and_entity_pair(graphs, word2idx, property2idx, max_sent_len, rep
                 index += 1
     return [sentences_matrix, entity_matrix, y_matrix, entity_pair]
 
-MAX_EDGES_PER_GRAPH = 72
+MAX_EDGES_PER_GRAPH = 72 # 需要时 9 的倍数？
 
 def to_indices_with_real_entities(graphs, word2idx, property2idx, max_sent_len, mode='train', **kwargs):
     """

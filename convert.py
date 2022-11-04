@@ -7,6 +7,12 @@ schemas_path = 'resources/CMeIE/53_schemas.jsonl'
 P_filepath = "data/P_with_labels.txt"
 Q_filepath = "data/Q_with_labels.txt"
 
+# train:
+#   total= 14339    P= 44   Q= 25238 
+#   token_len= 297    vertex_n= 37    edge_n= 36
+# dev: 
+#   total= 3585 P= 44   Q= 25238
+#   token_len= 286   vertex_n= 31    edge_n= 32
 
 #data_path = 'resources/CMeIE/CMeIE_train.jsonl'
 #newfile_path = 'data/cmeie_train.json'
@@ -29,6 +35,7 @@ tokenizer = Tokenizer(dict_path, do_lower_case=True,
 
 
 P_nn = Q_nn = 0
+max_token_len = max_vertex_n = max_edge_n = 0
 
 def search(pattern, sequence):
     """从sequence中寻找子串pattern
@@ -174,6 +181,11 @@ with open(data_path, encoding='utf-8') as f:
 
         D.append(new_item)
 
+        max_token_len = max(max_token_len, len(new_item["tokens"]))
+        max_vertex_n = max(max_vertex_n, len(new_item["vertexSet"]))
+        max_edge_n = max(max_edge_n, len(new_item["edgeSet"]))
+
+
 # 保存文件
 with open(newfile_path, "w", encoding='utf-8') as f:
     json.dump(D, f, 
@@ -194,4 +206,5 @@ if Q_nn > 0:
 
     print(Q_filepath, "saved.")
 
-print(len(D), len(id2p), len(id2q))
+print(f"total= {len(D)}\tP= {len(id2p)}\tQ= {len(id2q)}")
+print(f"token_len= {max_token_len}\tvertex_n= {max_vertex_n}\tedge_n= {max_edge_n}")

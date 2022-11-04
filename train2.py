@@ -91,7 +91,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     max_sent_len = max(len(g["tokens"]) for g in training_data)
     print("Max sentence length:", max_sent_len)
 
-    max_sent_len = 36
+    max_sent_len = 300 # max tokens
     print("Max sentence length set to: {}".format(max_sent_len))
 
     graphs_to_indices = sp_models.to_indices
@@ -122,6 +122,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
         outfile.write(str(property2idx))
 
     ###### 测试输出
+    '''
     with open("data/test-property2idx.json", "w", encoding='utf-8') as f:
         json.dump(property2idx, f, indent=4, ensure_ascii=False)
 
@@ -129,6 +130,9 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     with open("data/test-val.pkl", "wb") as f:
         pickle.dump(val_as_indices, f)
 
+    return # 测试
+
+    '''
     ######
 
 
@@ -137,8 +141,6 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     print("Initialize the model")
     model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).to(device)
 
-
-    #return # 测试
 
     loss_func = nn.CrossEntropyLoss(ignore_index=0).to(device)
     opt = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=learning_rate, weight_decay=model_params['weight_decay'])

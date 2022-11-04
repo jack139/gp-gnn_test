@@ -14,7 +14,7 @@ import json
 import torch
 from torch import nn
 from torch.autograd import Variable
-from tqdm import *
+from tqdm import tqdm
 import ast
 from models.factory import get_model
 
@@ -44,8 +44,8 @@ def main_config():
 
     model_params = "model_params.json"
     word_embeddings = "bert_features.txt"
-    train_set = "test.json" 
-    val_set = "test.json" 
+    train_set = "cmeie_train.json"
+    val_set = "cmeie_dev.json"
 
     # a file to store property2idx
     # if is None use model_name.property2idx
@@ -149,10 +149,14 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
 
     step = 0
     for train_epoch in range(model_params['nb_epoch']):
+        print(f"Epoch: {train_epoch}")
+
         if(shuffle_data):
             np.random.shuffle(indices)
         f1 = 0
-        for i in tqdm(range(int(train_as_indices[0].shape[0] / model_params['batch_size']))):
+        acc_loss = 0
+        pbar = tqdm(range(int(train_as_indices[0].shape[0] / model_params['batch_size'])), ascii=True)
+        for i in pbar:
             opt.zero_grad()
 
             sentence_input = train_as_indices[0][indices[i * model_params['batch_size']: (i + 1) * model_params['batch_size']]]
@@ -172,6 +176,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
                                 Variable(torch.from_numpy(entity_markers.astype(int))).to(device))
 
             loss = loss_func(output, Variable(torch.from_numpy(labels.astype(int))).view(-1).to(device))
+            acc_loss += loss
 
             loss.backward()
             torch.nn.utils.clip_grad_norm(model.parameters(), grad_clip)
@@ -186,12 +191,16 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
 
             _, _, add_f1 = evaluation_utils.evaluate_instance_based(predicted, labels, empty_label=p0_index)
             f1 += add_f1
-            
 
-        print("Train f1: ", f1 / (train_as_indices[0].shape[0] / model_params['batch_size']))
+            pbar.set_postfix({'loss' : f'{acc_loss/(i+1):.5f}', 'f1' : f'{f1/(i+1):.4f}'})
+
+        pbar.close()
+
+        epoch_train_f1 = f1 / (train_as_indices[0].shape[0] / model_params['batch_size'])
+        print(f"Train f1: {epoch_train_f1:.4f}")
 
         val_f1 = 0
-        for i in tqdm(range(int(val_as_indices[0].shape[0] / model_params['batch_size']))):
+        for i in tqdm(range(int(val_as_indices[0].shape[0] / model_params['batch_size'])), ascii=True):
             sentence_input = val_as_indices[0][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
             entity_markers = val_as_indices[1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
             labels = val_as_indices[2][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
@@ -217,12 +226,13 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
             _, _, add_f1 = evaluation_utils.evaluate_instance_based(
                 predicted, labels, empty_label=p0_index)
             val_f1 += add_f1
-        print("Validation f1: ", val_f1 /
-                (val_as_indices[0].shape[0] / model_params['batch_size']))
+
+        epoch_val_f1 = val_f1 / (val_as_indices[0].shape[0] / model_params['batch_size'])
+        print(f"Validation f1: {epoch_val_f1:.4f}")
 
         # save model
-        if (train_epoch % 5 == 0 and save_model):
-            torch.save(model.state_dict(), "{0}{1}-{2}.out".format(save_folder, model_name, str(train_epoch)))
+        if save_model:
+            torch.save(model.state_dict(), os.path.join(save_folder, f"{model_name}-e{train_epoch:03d}-f1_{epoch_val_f1:.4f}.pt"))
 
         step = step + 1
 

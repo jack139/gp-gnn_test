@@ -16,10 +16,10 @@ Q_filepath = "data/Q_with_labels.txt"
 
 #data_path = 'resources/CMeIE/CMeIE_train.jsonl'
 #newfile_path = 'data/cmeie_train.json'
-#data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
-#newfile_path = 'data/cmeie_dev.json'
-data_path = 'data/example_test.jsonl'
-newfile_path = 'data/test.json'
+data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
+newfile_path = 'data/cmeie_dev.json'
+#data_path = 'data/example_test.jsonl'
+#newfile_path = 'data/test.json'
 
 
 maxlen = None # 不限长度
@@ -179,11 +179,15 @@ with open(data_path, encoding='utf-8') as f:
                 "left": [ i for i in range(o_idx, o_idx + len(o)) ]
             })
 
+        if len(new_item["vertexSet"])<2: # 忽略只有一个节点的数据
+            continue
+
         D.append(new_item)
 
         max_token_len = max(max_token_len, len(new_item["tokens"]))
         max_vertex_n = max(max_vertex_n, len(new_item["vertexSet"]))
         max_edge_n = max(max_edge_n, len(new_item["edgeSet"]))
+
 
 
 # 保存文件

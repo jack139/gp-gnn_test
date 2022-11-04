@@ -13,7 +13,7 @@
   "gpu": true,
   "contex.sum": "sum",
   "nb_epoch": 5,
-  "batch_size": 50,
+  "batch_size": 16,
   "weight_decay": 0,
   "embedding_dim": 8,
   "non-linear": "tanh",

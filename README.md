@@ -14,7 +14,7 @@ python3 bert_features.py
 
 
 
-### 训练
+## 训练
 ```
 python3 train2.py
 ```

@@ -8,10 +8,10 @@ P_filepath = "data/P_with_labels.txt"
 Q_filepath = "data/Q_with_labels.txt"
 
 
-data_path = 'resources/CMeIE/CMeIE_train.jsonl'
-newfile_path = 'data/cmeie_train.json'
-#data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
-#newfile_path = 'data/cmeie_dev.json'
+#data_path = 'resources/CMeIE/CMeIE_train.jsonl'
+#newfile_path = 'data/cmeie_train.json'
+data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
+newfile_path = 'data/cmeie_dev.json'
 
 
 maxlen = None # 不限长度
@@ -67,8 +67,8 @@ with open(schemas_path) as f:
         if l['predicate'] not in p2id:
             print("append P:", l['predicate'])
             P_nn += 1
-            id2p[f"P{len(p2id)}"] = l['predicate']
-            p2id[l['predicate']] = f"P{len(p2id)}"
+            id2p[f"P{len(p2id)+6}"] = l['predicate']
+            p2id[l['predicate']] = f"P{len(p2id)+6}"
 
 
 # 转换数据

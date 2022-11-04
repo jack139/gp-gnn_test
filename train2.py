@@ -126,7 +126,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
         json.dump(property2idx, f, indent=4, ensure_ascii=False)
 
     #sentences_matrix, entity_matrix, y_matrix, entity_cnt = val_as_indices
-    with open("data/test-train_as_indices.pkl", "wb") as f:
+    with open("data/test-val.pkl", "wb") as f:
         pickle.dump(val_as_indices, f)
 
     ######
@@ -138,7 +138,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).to(device)
 
 
-    return # 测试
+    #return # 测试
 
     loss_func = nn.CrossEntropyLoss(ignore_index=0).to(device)
     opt = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=learning_rate, weight_decay=model_params['weight_decay'])

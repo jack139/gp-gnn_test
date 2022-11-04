@@ -39,13 +39,13 @@ def main_config():
     device_id = 0
     # 
     model_name = "GPGNN"
-    data_folder = "data/gpgnn_data/"
+    data_folder = "data/"
     save_folder = "data/models/"
 
     model_params = "model_params.json"
-    word_embeddings = "glove.6B.50d.txt"
-    train_set = "test_train.json" #"train.json"
-    val_set = "test_val.json" #"validation.json"
+    word_embeddings = "bert_features.txt"
+    train_set = "test.json" 
+    val_set = "test.json" 
 
     # a file to store property2idx
     # if is None use model_name.property2idx

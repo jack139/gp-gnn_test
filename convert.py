@@ -10,8 +10,10 @@ Q_filepath = "data/Q_with_labels.txt"
 
 #data_path = 'resources/CMeIE/CMeIE_train.jsonl'
 #newfile_path = 'data/cmeie_train.json'
-data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
-newfile_path = 'data/cmeie_dev.json'
+#data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
+#newfile_path = 'data/cmeie_dev.json'
+data_path = 'data/example_test.jsonl'
+newfile_path = 'data/test.json'
 
 
 maxlen = None # 不限长度

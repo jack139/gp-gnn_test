@@ -25,6 +25,7 @@ tokenizer = Tokenizer(dict_path, do_lower_case=True,
 # >>> tokenizer.ids_to_tokens(token_ids)
 # ['1978', '-', '03', '-', '23', '3', '.', '担', '忧', '过', '去', '的', '行', '为', '；']
 
+P_nn = Q_nn = 0
 
 def search(pattern, sequence):
     """从sequence中寻找子串pattern
@@ -64,6 +65,7 @@ with open(schemas_path) as f:
         l = json.loads(l)
         if l['predicate'] not in p2id:
             print("append P:", l['predicate'])
+            P_nn += 1
             id2p[f"P{len(p2id)}"] = l['predicate']
             p2id[l['predicate']] = f"P{len(p2id)}"
 
@@ -107,11 +109,15 @@ with open(data_path, encoding='utf-8') as f:
                 o_str = ''.join(o_ids)
             else:
                 print("search fail:", l)
+                print(tokenizer.ids_to_tokens(token_ids))
+                print(tokenizer.ids_to_tokens(s))
+                print(tokenizer.ids_to_tokens(o))
                 continue
 
             # 生成 Q 标记
             if s_str not in q2id:
                 print("append Q:", s_str)
+                Q_nn += 1
                 id2q[f"Q{len(q2id)}"] = s_str
                 q2id[s_str] = f"Q{len(q2id)}"
 
@@ -119,6 +125,7 @@ with open(data_path, encoding='utf-8') as f:
 
             if o_str not in q2id:
                 print("append Q:", o_str)
+                Q_nn += 1
                 id2q[f"Q{len(q2id)}"] = o_str
                 q2id[o_str] = f"Q{len(q2id)}"
 
@@ -169,11 +176,17 @@ with open(newfile_path, "w", encoding='utf-8') as f:
     json.dump(D, f, 
         #indent=4, 
         ensure_ascii=False)
+    print(newfile_path, "saved.")
 
-with open(P_filepath, "w", encoding='utf-8') as f:
-    for k in id2p.keys():
-        f.write(f"{k}\t{id2p[k]}\n")
+if P_nn > 0:
+    with open(P_filepath, "w", encoding='utf-8') as f:
+        for k in id2p.keys():
+            f.write(f"{k}\t{id2p[k]}\n")
+    print(P_filepath, "saved.")
 
-with open(Q_filepath, "w", encoding='utf-8') as f:
-    for k in id2q.keys():
-        f.write(f"{k}\t{id2q[k]}\n")
+if Q_nn > 0:
+    with open(Q_filepath, "w", encoding='utf-8') as f:
+        for k in id2q.keys():
+            f.write(f"{k}\t{id2q[k]}\n")
+
+    print(Q_filepath, "saved.")

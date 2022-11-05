@@ -50,7 +50,7 @@ def main_config():
     # a file to store property2idx
     # if is None use model_name.property2idx
     property_index = None
-    learning_rate = 1e-3
+    learning_rate = 5e-4
     shuffle_data = True
     save_model = True
     grad_clip = 0.25
@@ -179,7 +179,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
             acc_loss += loss
 
             loss.backward()
-            torch.nn.utils.clip_grad_norm(model.parameters(), grad_clip)
+            torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
             opt.step()
 
             _, predicted = torch.max(output, dim=1)
@@ -205,16 +205,19 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
             entity_markers = val_as_indices[1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
             labels = val_as_indices[2][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
             if model_name == "GPGNN":
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
-                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device), 
+                with torch.no_grad():
+                    output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int))).to(device), 
                                 val_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])
             elif model_name == "PCNN":
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
-                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device), 
-                                Variable(torch.from_numpy(np.array(val_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), volatile=True).to(device))        
+                with torch.no_grad():
+                    output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int))).to(device), 
+                                Variable(torch.from_numpy(np.array(val_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float()).to(device))        
             else:
-                output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
-                                Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device))
+                with torch.no_grad():
+                    output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device), 
+                                Variable(torch.from_numpy(entity_markers.astype(int))).to(device))
 
             _, predicted = torch.max(output, dim=1)
             labels = labels.reshape(-1).tolist()

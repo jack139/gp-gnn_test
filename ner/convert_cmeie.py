@@ -7,14 +7,18 @@ categories = set()
 new_ratio = 0.1
 
 
-cate_map = {
-    "检查" : "检验和检查",
-    "疾病" : "疾病和诊断",
-    "症状" : "症状和体征",
-    "手术治疗" : "治疗和手术",
-    "其他治疗" : "治疗和手术",
-    "部位" : "解剖部位",
-    "药物" : "药物",
+cate_map = { # 只使用 一个标签
+    "检查" : "entity",
+    "疾病" : "entity",
+    "症状" : "entity",
+    "手术治疗" : "entity",
+    "其他治疗" : "entity",
+    "部位" : "entity",
+    "药物" : "entity",
+    "流行病学": "entity", 
+    "社会学" : "entity", 
+    "预后" : "entity",
+    "其他" : "entity"
 }
 
 def search(pattern, sequence):
@@ -48,13 +52,8 @@ def get_data(infile, include_blank=True):
                 categories.add(s_type)
                 categories.add(o_type)
 
-                #if s_type in ["流行病学", "社会学", "预后", "其他"]:
-                #    continue
-                #if o_type in ["流行病学", "社会学", "预后", "其他"]:
-                #    continue
-
-                #s_type = cate_map[s_type]
-                #o_type = cate_map[o_type]
+                s_type = cate_map[s_type] # 转换标签
+                o_type = cate_map[o_type]
 
                 s_idx = search(s, text)
                 o_idx = search(o, text)

@@ -190,12 +190,21 @@ def predict_to_file(in_file, out_file):
                     'entity': d['text'][e[0]:e[1]+1]
                 })
 
-    json.dump(
-        data,
-        open(out_file, 'w', encoding='utf-8'),
-        indent=4,
-        ensure_ascii=False
-    )
+    if out_file.endswith("jsonl"):
+        # 保存到 jsonl 文件
+        with open(out_file, 'w', encoding='utf-8') as f:
+            for d in data:
+                f.write(json.dumps(d, ensure_ascii=False) + "\n")
+    else:
+        # 保存到 json 文件
+        json.dump(
+            data,
+            open(out_file, 'w', encoding='utf-8'),
+            indent=4,
+            ensure_ascii=False
+        )
+
+    
 
 
 if __name__ == '__main__':
@@ -203,7 +212,7 @@ if __name__ == '__main__':
     evaluator = Evaluator()
     train_generator = data_generator(train_data, batch_size)
 
-    model.load_weights(f'data/{DATASET}_best_f1_0.76259.weights')
+    #model.load_weights(f'data/{DATASET}_best_f1_0.76259.weights')
 
     model.fit(
         train_generator.forfit(),
@@ -213,6 +222,6 @@ if __name__ == '__main__':
     )
 
 else:
-    model.load_weights(f'data/{DATASET}_best_f1_0.76259.weights')
+    model.load_weights(f'data/{DATASET}_best_f1_0.78939.weights')
     #predict_to_file(f'{data_path}/{DATASET}_dev.json', f'data/{DATASET}_dev_pred.json')
-    predict_to_file(f'{data_path}/{DATASET}_test.json', f'data/{DATASET}_test_pred.json')
+    predict_to_file(f'{data_path}/{DATASET}_test.json', f'data/{DATASET}_test_pred.jsonl')

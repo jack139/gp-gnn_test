@@ -18,3 +18,12 @@ python3 bert_features.py
 ```
 python3 train2.py
 ```
+
+
+
+## 生成结果
+```
+cd ner; echo "import baseline_train" | python3; cd ..
+python3 conver_test.py
+
+```

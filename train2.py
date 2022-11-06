@@ -56,9 +56,12 @@ def main_config():
     grad_clip = 0.25
     os.environ["CUDA_VISIBLE_DEVICES"] = str(device_id)
 
+    checkpoint = "data/models/GPGNN-e029-f1_0.6746.pt"
+
 
 @ex.automain
-def main(model_params, model_name, data_folder, word_embeddings, train_set, val_set, property_index, learning_rate, shuffle_data, save_folder, save_model, grad_clip):
+def main(model_params, model_name, data_folder, word_embeddings, train_set, val_set, 
+    property_index, learning_rate, shuffle_data, save_folder, save_model, grad_clip, checkpoint):
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
 
@@ -141,15 +144,19 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     print("Initialize the model")
     model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).to(device)
 
-
     loss_func = nn.CrossEntropyLoss(ignore_index=0).to(device)
     opt = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=learning_rate, weight_decay=model_params['weight_decay'])
+
+    ## load checkpoint
+    if os.path.exists(checkpoint):
+        model.load_state_dict(torch.load(checkpoint))
+        print("Load checkpoint ...", checkpoint)
 
     indices = np.arange(train_as_indices[0].shape[0])
 
     step = 0
     for train_epoch in range(model_params['nb_epoch']):
-        print(f"Epoch: {train_epoch}")
+        print(f"Epoch: {train_epoch+1}")
 
         if(shuffle_data):
             np.random.shuffle(indices)
@@ -235,7 +242,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
 
         # save model
         if save_model:
-            torch.save(model.state_dict(), os.path.join(save_folder, f"{model_name}-e{train_epoch:03d}-f1_{epoch_val_f1:.4f}.pt"))
+            torch.save(model.state_dict(), os.path.join(save_folder, f"{model_name}-e{train_epoch+1:03d}-f1_{epoch_val_f1:.4f}.pt"))
 
         step = step + 1
 

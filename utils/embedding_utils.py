@@ -140,7 +140,7 @@ def init_random(elements_to_embed, embedding_size, add_all_zeroes=False, add_unk
     if add_all_zeroes:
         embeddings[0] = np.zeros([embedding_size])
 
-    return embeddings, element2idx
+    return embeddings, element2idx, elements_to_embed
 
 
 def timedistributed_to_one_hot(y, nb_classes):

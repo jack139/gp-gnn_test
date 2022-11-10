@@ -88,7 +88,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
         with open(save_folder + args.property_index) as f:
             property2idx = ast.literal_eval(f.read())
     else:
-        _, property2idx = embedding_utils.init_random({e["kbID"] for g in training_data
+        _, property2idx, elements_to_embed = embedding_utils.init_random({e["kbID"] for g in training_data
                                                     for e in g["edgeSet"]} | {"P0"}, 1, add_all_zeroes=True, add_unknown=True)
     
     max_sent_len = max(len(g["tokens"]) for g in training_data)
@@ -107,7 +107,7 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     elif model_name == "GPGNN":
         graphs_to_indices = sp_models.to_indices_with_real_entities_and_entity_nums_with_vertex_padding
 
-    _, position2idx = embedding_utils.init_random(np.arange(-max_sent_len, max_sent_len), 1, add_all_zeroes=True)
+    _, position2idx, _ = embedding_utils.init_random(np.arange(-max_sent_len, max_sent_len), 1, add_all_zeroes=True)
 
     train_as_indices = list(graphs_to_indices(training_data, word2idx, property2idx, max_sent_len, embeddings=embeddings, position2idx=position2idx))
 
@@ -123,6 +123,9 @@ def main(model_params, model_name, data_folder, word_embeddings, train_set, val_
     print("Save property dictionary.")
     with open(save_folder + model_name + ".property2idx", 'w') as outfile:
         outfile.write(str(property2idx))
+
+    with open(save_folder + "labels.json", "w", encoding='utf-8') as f:
+        json.dump(elements_to_embed, f, ensure_ascii=False)
 
     ###### 测试输出
     '''

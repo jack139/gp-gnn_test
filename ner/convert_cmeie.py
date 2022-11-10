@@ -6,7 +6,7 @@ categories = set()
 
 new_ratio = 0.1
 
-
+'''
 cate_map = { # 只使用 一个标签
     "检查" : "entity",
     "疾病" : "entity",
@@ -20,6 +20,7 @@ cate_map = { # 只使用 一个标签
     "预后" : "entity",
     "其他" : "entity"
 }
+'''
 
 def search(pattern, sequence):
     """从sequence中寻找子串pattern
@@ -52,8 +53,8 @@ def get_data(infile, include_blank=True):
                 categories.add(s_type)
                 categories.add(o_type)
 
-                s_type = cate_map[s_type] # 转换标签
-                o_type = cate_map[o_type]
+                #s_type = cate_map[s_type] # 转换标签
+                #o_type = cate_map[o_type]
 
                 s_idx = search(s, text)
                 o_idx = search(o, text)

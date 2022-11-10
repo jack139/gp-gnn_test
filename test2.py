@@ -47,11 +47,11 @@ def main_config():
 
     data_folder = "data/"
     save_folder = "data/models/"
-    result_folder = "data/result/"
     model_params = "model_params.json"
     word_embeddings = "bert_features.txt"
 
-    test_set = "cmeie_test.json"
+    #test_set = "cmeie_test.json"
+    test_set = "test.json"
     
     # a file to store property2idx
     # if is None use model_name.property2idx
@@ -61,7 +61,8 @@ def main_config():
 
 
 @ex.automain
-def main(model_params, model_name, data_folder, word_embeddings, test_set, property_index, save_folder, load_model, result_folder):
+def main(model_params, model_name, data_folder, word_embeddings, test_set, property_index, 
+    save_folder, load_model):
     
     with open(model_params) as f:
         model_params = json.load(f)
@@ -76,9 +77,11 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
 
 
     print("Reading the property index")
-    with open(data_folder + "models/" + model_name + ".property2idx") as f:
+    with open(save_folder + model_name + ".property2idx") as f:
         property2idx = ast.literal_eval(f.read())
-    
+
+    with open(save_folder + "labels.json") as f:
+        all_labels = json.load(f)
 
     max_sent_len = 300 # max tokens
     print("Max sentence length set to: {}".format(max_sent_len))
@@ -93,7 +96,7 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
     elif model_name == "GPGNN":
         graphs_to_indices = sp_models.to_indices_with_real_entities_and_entity_nums_with_vertex_padding_and_entity_pair
 
-    _, position2idx = embedding_utils.init_random(np.arange(-max_sent_len, max_sent_len), 1, add_all_zeroes=True)
+    _, position2idx, _ = embedding_utils.init_random(np.arange(-max_sent_len, max_sent_len), 1, add_all_zeroes=True)
 
 
     training_data = None
@@ -102,7 +105,10 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
     print("N_out:", n_out)
 
     model = get_model(model_name)(model_params, embeddings, max_sent_len, n_out).to(device)
-    model.load_state_dict(torch.load(save_folder + load_model))
+    if torch.cuda.is_available():
+        model.load_state_dict(torch.load(save_folder + load_model))
+    else:
+        model.load_state_dict(torch.load(save_folder + load_model, map_location=torch.device('cpu')))
     print("Testing")
 
 
@@ -113,36 +119,48 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
     print(test_as_indices)
 
     print("Start testing!")
-    result_file = open(result_folder + "_" + model_name, "w")
+    result_file = open(data_folder + f"result_{model_name}.txt", "w")
     for i in tqdm(range(int(test_as_indices[0].shape[0] / model_params['batch_size']))):
         sentence_input = test_as_indices[0][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
         entity_markers = test_as_indices[1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
         labels = test_as_indices[2][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
 
         if model_name == "GPGNN":
-            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device),
-                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device),
+            with torch.no_grad():
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device),
+                            Variable(torch.from_numpy(entity_markers.astype(int))).to(device),
                             test_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])
         elif model_name == "PCNN":
-            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device), 
-                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device), 
-                            Variable(torch.from_numpy(np.array(test_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), requires_grad=False, volatile=True).to(device))        
+            with torch.no_grad():
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device), 
+                            Variable(torch.from_numpy(entity_markers.astype(int))).to(device), 
+                            Variable(torch.from_numpy(np.array(test_as_indices[3][i * model_params['batch_size']: (i + 1) * model_params['batch_size']])).float(), requires_grad=False).to(device))        
         else:
-            output = model(Variable(torch.from_numpy(sentence_input.astype(int)), volatile=True).to(device),
-                            Variable(torch.from_numpy(entity_markers.astype(int)), volatile=True).to(device))
+            with torch.no_grad():
+                output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device),
+                            Variable(torch.from_numpy(entity_markers.astype(int))).to(device))
 
-        score = F.softmax(output)
-        score = to_np(score).reshape(-1, n_out)
+        #score = F.softmax(output)
+        #score = to_np(score).reshape(-1, n_out)
+        _, predicted = torch.max(output, dim=1)
         labels = labels.reshape(-1)
         p_indices = labels != 0
-        score = score[p_indices].tolist()
+        #score = score[p_indices].tolist()
+        predicted = np.array(predicted)[p_indices].tolist()
         labels = labels[p_indices].tolist()
-        if(model_name != "LSTM" and model_name != "PCNN" and model_name != "CNN"):
-            entity_pairs = test_as_indices[-1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
-            entity_pairs = reduce(lambda x,y :x+y , entity_pairs)
-        else:
-            entity_pairs = test_as_indices[-1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]    
-        for (i, j, entity_pair) in zip(score, labels, entity_pairs):
-            for index, k in enumerate(i):
-                result_file.write(str(index) + "\t" + str(k) + "\t" + str(1 if index == j else 0) + "\t" + entity_pair[0] + "\t" + entity_pair[1] + "\n")
+
+        print(labels)
+        print(predicted)
+
+        for l, p in zip(labels, predicted):
+            print(all_labels[l-1], '---', all_labels[p-1])
+
+        #if(model_name != "LSTM" and model_name != "PCNN" and model_name != "CNN"):
+        #    entity_pairs = test_as_indices[-1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
+        #    entity_pairs = reduce(lambda x,y :x+y , entity_pairs)
+        #else:
+        #    entity_pairs = test_as_indices[-1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]    
+        #for (i, j, entity_pair, p) in zip(score, labels, entity_pairs, predicted):
+        #    for index, k in enumerate(i):
+        #        result_file.write(str(index) + "\t" + str(k) + "\t" + str(1 if index == j else 0) + "\t" + entity_pair[0] + "\t" + entity_pair[1] + "\t" + str(p) + "\n")
 

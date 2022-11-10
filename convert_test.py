@@ -14,7 +14,8 @@ Q_filepath = "data/Q_with_labels.txt"
 #   total= 3585 P= 44   Q= 25238
 #   token_len= 286   vertex_n= 31    edge_n= 32
 
-data_path = 'ner/data/cmeie_test_pred.jsonl'
+#data_path = 'ner/data/cmeie_test_pred.jsonl'
+data_path = 'ner/data/cmeie_test_pred_example.jsonl'
 newfile_path = 'data/cmeie_test.json'
 #data_path = 'data/example_test.jsonl'
 #newfile_path = 'data/test.json'
@@ -94,6 +95,20 @@ with open(data_path, encoding='utf-8') as f:
             "edgeSet" : []
         }
 
+        entity_map = { # 只使用 一个标签
+            "检查"    : [],
+            "疾病"    : [],
+            "症状"    : [],
+            "手术治疗" : [],
+            "其他治疗" : [],
+            "部位"    : [],
+            "药物"    : [],
+            "流行病学" : [],
+            "社会学"  : [],
+            "预后"    : [],
+            "其他"    : [],
+        }
+
         for spo in l['entities_pred']:
             s = spo['entity']
 
@@ -127,19 +142,45 @@ with open(data_path, encoding='utf-8') as f:
                 return False
 
             if not in_vertexSet(s_kbID):
+                tokenpositions = [ i for i in range(s_idx, s_idx + len(s)) ]
                 new_item["vertexSet"].append({
                     "kbID": s_kbID,
                     "lexicalInput": s_str,
                     "namedEntity": True,
-                    "tokenpositions": [ i for i in range(s_idx, s_idx + len(s)) ],
+                    "tokenpositions": tokenpositions,
                     "numericalValue": 0.0,
                     "variable": False,
                     "unique": False,
                     "type": "LEXICAL"
                 })
 
+                entity_map[spo["type"]].append(tokenpositions)
+
         if len(new_item["vertexSet"])<2: # 忽略只有一个节点的数据
             continue
+
+        # 生成边
+        for d in entity_map["疾病"]: # 疾病为主语的
+            for k in entity_map.keys():
+                if k=="疾病":
+                    continue
+                for j in entity_map[k]:
+                    new_item["edgeSet"].append({
+                        "kbID": "P0",
+                        "right": d,
+                        "left": j
+                    })
+
+        for k in entity_map.keys(): # 同义词
+            if len(entity_map[k])<2:
+                continue
+            for i in range(len(entity_map[k])-1):
+                for j in range(i+1, len(entity_map[k]), 1):
+                    new_item["edgeSet"].append({
+                        "kbID": "P0",
+                        "right": entity_map[k][i],
+                        "left": entity_map[k][j]
+                    })
 
         D.append(new_item)
 

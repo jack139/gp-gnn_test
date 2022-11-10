@@ -16,10 +16,10 @@ Q_filepath = "data/Q_with_labels.txt"
 
 #data_path = 'resources/CMeIE/CMeIE_train.jsonl'
 #newfile_path = 'data/cmeie_train.json'
-data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
-newfile_path = 'data/cmeie_dev.json'
-#data_path = 'data/example_test.jsonl'
-#newfile_path = 'data/test.json'
+#data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
+#newfile_path = 'data/cmeie_dev.json'
+data_path = 'data/example_test.jsonl'
+newfile_path = 'data/test.json'
 
 
 maxlen = None # 不限长度
@@ -193,7 +193,7 @@ with open(data_path, encoding='utf-8') as f:
 # 保存文件
 with open(newfile_path, "w", encoding='utf-8') as f:
     json.dump(D, f, 
-        #indent=4, 
+        indent=4, 
         ensure_ascii=False)
     print(newfile_path, "saved.")
 

@@ -50,8 +50,8 @@ def main_config():
     model_params = "model_params.json"
     word_embeddings = "bert_features.txt"
 
-    #test_set = "cmeie_test.json"
-    test_set = "test.json"
+    test_set = "cmeie_test.json"
+    #test_set = "test.json"
     
     # a file to store property2idx
     # if is None use model_name.property2idx
@@ -113,10 +113,28 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
 
 
     print("Results on the test set")
-    test_set, _ = io.load_relation_graphs_from_file(data_folder + test_set)
-    test_as_indices = list(graphs_to_indices(test_set, word2idx, property2idx, max_sent_len, embeddings=embeddings, position2idx=position2idx))
+    test_set_data, _ = io.load_relation_graphs_from_file(data_folder + test_set)
+    test_as_indices = list(graphs_to_indices(test_set_data, word2idx, property2idx, max_sent_len, embeddings=embeddings, position2idx=position2idx))
     
-    print(test_as_indices)
+    #print(test_as_indices)
+
+    # 测试文件数据
+    outfile_f = open(save_folder + "cmeie_test.jsonl", 'w', encoding='utf-8')
+    with open(data_folder + test_set, encoding='utf-8') as f:
+        test_dataset = json.load(f)
+    test_nn = 0
+
+    # P 数据
+    p2id, id2p = {}, {}
+    P_filepath = "data/P_with_labels.txt"
+    if os.path.exists(P_filepath):
+        with open(P_filepath) as f:
+            for l in f:
+                if len(l)==0:
+                    continue
+                pid, P = l.split()
+                id2p[pid] = P
+                p2id[P] = pid
 
     print("Start testing!")
     result_file = open(data_folder + f"result_{model_name}.txt", "w")
@@ -143,24 +161,41 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
         #score = F.softmax(output)
         #score = to_np(score).reshape(-1, n_out)
         _, predicted = torch.max(output, dim=1)
+        #print(predicted.shape)
         labels = labels.reshape(-1)
         p_indices = labels != 0
         #score = score[p_indices].tolist()
-        predicted = np.array(predicted)[p_indices].tolist()
+        predicted = np.array(predicted.cpu())[p_indices].tolist()
+        #print(len(predicted))
         labels = labels[p_indices].tolist()
 
-        print(labels)
-        print(predicted)
+        #for l, p in zip(labels, predicted):
+        #    print(all_labels[l-1], '---', all_labels[p-1])
 
-        for l, p in zip(labels, predicted):
-            print(all_labels[l-1], '---', all_labels[p-1])
+        predicted_nn = 0
+        for ii in range(model_params['batch_size']):
+            tt = test_dataset[test_nn + ii]
+            item = {
+                "text" : tt["text"],
+                "spo_list" : [],
+            }
+            for x in tt["edgeSet"]:
+                item["spo_list"].append({
+                    "Combined": False,
+                    #"predicate": id2p[all_labels[predicted[predicted_nn]-1]],
+                    "subject": x["right_text"],
+                    "subject_type": x["right_type"],
+                    "object": {"@value": x["left_text"]},
+                    "object_type": {"@value": x["left_type"]}
+                })
+                predicted_nn += 1
 
-        #if(model_name != "LSTM" and model_name != "PCNN" and model_name != "CNN"):
-        #    entity_pairs = test_as_indices[-1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
-        #    entity_pairs = reduce(lambda x,y :x+y , entity_pairs)
-        #else:
-        #    entity_pairs = test_as_indices[-1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]    
-        #for (i, j, entity_pair, p) in zip(score, labels, entity_pairs, predicted):
-        #    for index, k in enumerate(i):
-        #        result_file.write(str(index) + "\t" + str(k) + "\t" + str(1 if index == j else 0) + "\t" + entity_pair[0] + "\t" + entity_pair[1] + "\t" + str(p) + "\n")
+            outfile_f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
+        assert predicted_nn==len(predicted), f"{predicted_nn} != {len(predicted)} !!!"
+        #print(predicted_nn)
+
+        test_nn += model_params['batch_size']
+        #break # for test
+
+    outfile_f.close()

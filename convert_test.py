@@ -14,8 +14,8 @@ Q_filepath = "data/Q_with_labels.txt"
 #   total= 3585 P= 44   Q= 25238
 #   token_len= 286   vertex_n= 31    edge_n= 32
 
-#data_path = 'ner/data/cmeie_test_pred.jsonl'
-data_path = 'ner/data/cmeie_test_pred_example.jsonl'
+#data_path = 'ner/data/cmeie_test_pred_example.jsonl'
+data_path = 'ner/data/cmeie_test_pred.jsonl'
 newfile_path = 'data/cmeie_test.json'
 #data_path = 'data/example_test.jsonl'
 #newfile_path = 'data/test.json'
@@ -92,7 +92,8 @@ with open(data_path, encoding='utf-8') as f:
             #"tokens" : [Tokenizer.stem(i) for i in ids], # 去掉前缀 '##'
             "tokens" : ids,
             "vertexSet" : [],
-            "edgeSet" : []
+            "edgeSet" : [],
+            "text" : l["text"] # 原文本
         }
 
         entity_map = { # 只使用 一个标签
@@ -110,19 +111,30 @@ with open(data_path, encoding='utf-8') as f:
         }
 
         for spo in l['entities_pred']:
-            s = spo['entity']
-
+            try_again = 0
             # 查找并转换token, 使用token查找，因为token不一定是单字符
-            s = tokenizer.encode(s)[0]
-            s_idx = search(s, token_ids)
-            if s_idx != -1: # and o_idx != -1:
-                s = token_ids[s_idx : s_idx + len(s)]
-                s_ids = tokenizer.ids_to_tokens(s)
-                s_str = ''.join(s_ids)
-            else:
-                print("search fail:", l)
-                print(tokenizer.ids_to_tokens(token_ids))
-                print(tokenizer.ids_to_tokens(s))
+            s = tokenizer.encode(spo['entity'])[0]
+            while True:
+                s_idx = search(s, token_ids)
+                if s_idx != -1: # and o_idx != -1:
+                    s = token_ids[s_idx : s_idx + len(s)]
+                    s_ids = tokenizer.ids_to_tokens(s)
+                    s_str = ''.join(s_ids)
+                else:
+                    if try_again==0:
+                        s = tokenizer.encode('⑤'+spo['entity'])[0] # ⑤a 会变成  ⑤##a, 所以转换一下，进行匹配
+                        s = s[1:]
+                        try_again += 1
+                        continue
+
+                    print("search fail:", l)
+                    print(tokenizer.ids_to_tokens(token_ids))
+                    print(tokenizer.ids_to_tokens(s))
+                    try_again += 1 # 此时应为 2
+
+                break
+
+            if try_again==2: # 放弃这个数据
                 continue
 
             # 生成 Q 标记
@@ -151,10 +163,10 @@ with open(data_path, encoding='utf-8') as f:
                     "numericalValue": 0.0,
                     "variable": False,
                     "unique": False,
-                    "type": "LEXICAL"
+                    "type": "LEXICAL",
                 })
 
-                entity_map[spo["type"]].append(tokenpositions)
+                entity_map[spo["type"]].append((tokenpositions, spo['entity']))
 
         if len(new_item["vertexSet"])<2: # 忽略只有一个节点的数据
             continue
@@ -167,8 +179,12 @@ with open(data_path, encoding='utf-8') as f:
                 for j in entity_map[k]:
                     new_item["edgeSet"].append({
                         "kbID": "P0",
-                        "right": d,
-                        "left": j
+                        "right": d[0],
+                        "right_text": d[1],
+                        "right_type": "疾病",
+                        "left": j[0],
+                        "left_text": j[1],
+                        "left_type": k
                     })
 
         for k in entity_map.keys(): # 同义词
@@ -178,8 +194,12 @@ with open(data_path, encoding='utf-8') as f:
                 for j in range(i+1, len(entity_map[k]), 1):
                     new_item["edgeSet"].append({
                         "kbID": "P0",
-                        "right": entity_map[k][i],
-                        "left": entity_map[k][j]
+                        "right": entity_map[k][i][0],
+                        "right_text": entity_map[k][i][1],
+                        "right_type": k,
+                        "left": entity_map[k][j][0],
+                        "left_text": entity_map[k][j][1],
+                        "left_type": k
                     })
 
         D.append(new_item)

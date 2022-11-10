@@ -222,6 +222,6 @@ if __name__ == '__main__':
     )
 
 else:
-    model.load_weights(f'data/{DATASET}_best_f1_0.78939.weights')
+    model.load_weights(f'data/{DATASET}_best_f1_0.76332.weights')
     #predict_to_file(f'{data_path}/{DATASET}_dev.json', f'data/{DATASET}_dev_pred.json')
     predict_to_file(f'{data_path}/{DATASET}_test.json', f'data/{DATASET}_test_pred.jsonl')

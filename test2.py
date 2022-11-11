@@ -119,7 +119,7 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
     #print(test_as_indices)
 
     # 测试文件数据
-    outfile_f = open(save_folder + "cmeie_test.jsonl", 'w', encoding='utf-8')
+    outfile_f = open(save_folder + "CMeIE_test.jsonl", 'w', encoding='utf-8')
     with open(data_folder + test_set, encoding='utf-8') as f:
         test_dataset = json.load(f)
     test_nn = 0
@@ -138,6 +138,7 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
 
     print("Start testing!")
     result_file = open(data_folder + f"result_{model_name}.txt", "w")
+
     for i in tqdm(range(int(test_as_indices[0].shape[0] / model_params['batch_size']))):
         sentence_input = test_as_indices[0][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
         entity_markers = test_as_indices[1][i * model_params['batch_size']: (i + 1) * model_params['batch_size']]
@@ -158,15 +159,10 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
                 output = model(Variable(torch.from_numpy(sentence_input.astype(int))).to(device),
                             Variable(torch.from_numpy(entity_markers.astype(int))).to(device))
 
-        #score = F.softmax(output)
-        #score = to_np(score).reshape(-1, n_out)
         _, predicted = torch.max(output, dim=1)
-        #print(predicted.shape)
         labels = labels.reshape(-1)
         p_indices = labels != 0
-        #score = score[p_indices].tolist()
         predicted = np.array(predicted.cpu())[p_indices].tolist()
-        #print(len(predicted))
         labels = labels[p_indices].tolist()
 
         #for l, p in zip(labels, predicted):
@@ -197,11 +193,11 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
                     })
                 predicted_nn += 1
 
+
             outfile_f.write(json.dumps(item, ensure_ascii=False) + "\n")
             test_nn += 1
 
         assert predicted_nn==len(predicted), f"{predicted_nn} != {len(predicted)} !!!"
-        #print(predicted_nn)
 
         #break # for test
 

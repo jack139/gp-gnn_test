@@ -286,6 +286,7 @@ def to_indices_with_real_entities_and_entity_nums_with_vertex_padding_and_entity
     entity_cnt = []
     pos2id = dict()
     entity_pair = []
+
     for index, g in enumerate(tqdm.tqdm(graphs, ascii=True)):
         try:    
             entity_cnt.append(len(g["vertexSet"]))  
@@ -304,9 +305,10 @@ def to_indices_with_real_entities_and_entity_nums_with_vertex_padding_and_entity
                 [m for _, m in graph_utils.get_entity_indexed_vector(token_ids, edge, mode="mark-bi")]
             _, property_kbid, _ = graph_utils.edge_to_kb_ids(edge, g)
             property_kbid = property2idx.get(property_kbid, property2idx[embedding_utils.unknown])
+            assert y_matrix[index, new_j]==0, f"y_matrix[{index}, {new_j}]={y_matrix[index, new_j]} {g['text']}"
             y_matrix[index, new_j] = property_kbid
             entity_pair_instance.append((pos2id[tuple(edge['left'])], pos2id[tuple(edge['right'])]))
-        entity_pair.append(entity_pair_instance)    
+        entity_pair.append(entity_pair_instance)
     entity_cnt = np.array(entity_cnt, dtype=np.int32)        
          
     return sentences_matrix, entity_matrix, y_matrix, entity_cnt, entity_pair

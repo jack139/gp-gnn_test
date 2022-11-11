@@ -16,8 +16,8 @@ Q_filepath = "data/Q_with_labels.txt"
 
 train_batch_size = 16
 
-data_path = 'ner/data/cmeie_test_pred_example.jsonl'
-#data_path = 'ner/data/cmeie_test_pred.jsonl'
+#data_path = 'ner/data/cmeie_test_pred_example.jsonl'
+data_path = 'ner/data/cmeie_test_pred.jsonl'
 newfile_path = 'data/cmeie_test.json'
 #data_path = 'data/example_test.jsonl'
 #newfile_path = 'data/test.json'
@@ -156,7 +156,7 @@ with open(data_path, encoding='utf-8') as f:
                         return True
                 return False
 
-            if not in_vertexSet(s_kbID):
+            if not in_vertexSet(s_kbID) and len(new_item["vertexSet"])<9: # 最多支持 9 个结点
                 tokenpositions = [ i for i in range(s_idx, s_idx + len(s)) ]
                 new_item["vertexSet"].append({
                     "kbID": s_kbID,
@@ -183,7 +183,7 @@ with open(data_path, encoding='utf-8') as f:
                     continue
                 for j in entity_map[k]:
                     new_item["edgeSet"].append({
-                        "kbID": "P0",
+                        "kbID": "P6",
                         "right": d[0],
                         "right_text": d[1],
                         "right_type": "疾病",
@@ -192,13 +192,20 @@ with open(data_path, encoding='utf-8') as f:
                         "left_type": k
                     })
 
+        '''
+            A B C
+
+            A B
+            A C
+            B C
+        '''
         for k in entity_map.keys(): # 同义词
             if len(entity_map[k])<2:
                 continue
             for i in range(len(entity_map[k])-1):
                 for j in range(i+1, len(entity_map[k]), 1):
                     new_item["edgeSet"].append({
-                        "kbID": "P0",
+                        "kbID": "P6",
                         "right": entity_map[k][i][0],
                         "right_text": entity_map[k][i][1],
                         "right_type": k,

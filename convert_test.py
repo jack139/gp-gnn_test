@@ -14,8 +14,10 @@ Q_filepath = "data/Q_with_labels.txt"
 #   total= 3585 P= 44   Q= 25238
 #   token_len= 286   vertex_n= 31    edge_n= 32
 
-#data_path = 'ner/data/cmeie_test_pred_example.jsonl'
-data_path = 'ner/data/cmeie_test_pred.jsonl'
+train_batch_size = 16
+
+data_path = 'ner/data/cmeie_test_pred_example.jsonl'
+#data_path = 'ner/data/cmeie_test_pred.jsonl'
 newfile_path = 'data/cmeie_test.json'
 #data_path = 'data/example_test.jsonl'
 #newfile_path = 'data/test.json'
@@ -35,6 +37,7 @@ tokenizer = Tokenizer(dict_path, do_lower_case=True,
 
 P_nn = Q_nn = 0
 max_token_len = max_vertex_n = max_edge_n = 0
+one_vertex_n = 0
 
 def search(pattern, sequence):
     """从sequence中寻找子串pattern
@@ -169,7 +172,9 @@ with open(data_path, encoding='utf-8') as f:
                 entity_map[spo["type"]].append((tokenpositions, spo['entity']))
 
         if len(new_item["vertexSet"])<2: # 忽略只有一个节点的数据
-            continue
+            #print("ONE vertex!", l)
+            one_vertex_n += 1
+            #continue
 
         # 生成边
         for d in entity_map["疾病"]: # 疾病为主语的
@@ -209,7 +214,6 @@ with open(data_path, encoding='utf-8') as f:
         max_edge_n = max(max_edge_n, len(new_item["edgeSet"]))
 
 
-
 # 保存文件
 with open(newfile_path, "w", encoding='utf-8') as f:
     json.dump(D, f, 
@@ -230,5 +234,5 @@ if Q_nn > 0:
 
     print(Q_filepath, "saved.")
 
-print(f"total= {len(D)}\tP= {len(id2p)}\tQ= {len(id2q)}")
+print(f"total= {len(D)}\tP= {len(id2p)}\tQ= {len(id2q)}\tone_vertex_n= {one_vertex_n}")
 print(f"token_len= {max_token_len}\tvertex_n= {max_vertex_n}\tedge_n= {max_edge_n}")

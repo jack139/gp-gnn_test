@@ -173,29 +173,36 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
         #    print(all_labels[l-1], '---', all_labels[p-1])
 
         predicted_nn = 0
-        for ii in range(model_params['batch_size']):
-            tt = test_dataset[test_nn + ii]
+        while test_nn < len(test_dataset) and predicted_nn < len(predicted):
+            tt = test_dataset[test_nn]
             item = {
                 "text" : tt["text"],
                 "spo_list" : [],
             }
             for x in tt["edgeSet"]:
-                item["spo_list"].append({
-                    "Combined": False,
-                    #"predicate": id2p[all_labels[predicted[predicted_nn]-1]],
-                    "subject": x["right_text"],
-                    "subject_type": x["right_type"],
-                    "object": {"@value": x["left_text"]},
-                    "object_type": {"@value": x["left_type"]}
-                })
+                assert predicted_nn<len(predicted), f"{predicted_nn} >= {len(predicted)} !!!"
+
+                predicate = id2p[all_labels[predicted[predicted_nn]-1]]
+
+                if x["right_type"]==x["left_type"] and predicate!="同义词":
+                    pass
+                else:
+                    item["spo_list"].append({
+                        "Combined": False,
+                        "predicate": predicate,
+                        "subject": x["right_text"],
+                        "subject_type": x["right_type"],
+                        "object": {"@value": x["left_text"]},
+                        "object_type": {"@value": x["left_type"]}
+                    })
                 predicted_nn += 1
 
             outfile_f.write(json.dumps(item, ensure_ascii=False) + "\n")
+            test_nn += 1
 
         assert predicted_nn==len(predicted), f"{predicted_nn} != {len(predicted)} !!!"
         #print(predicted_nn)
 
-        test_nn += model_params['batch_size']
         #break # for test
 
     outfile_f.close()

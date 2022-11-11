@@ -14,7 +14,16 @@ python3 bert_features.py
 
 
 
-## 训练
+## 训练 NER
+```bash
+cd ner
+python3 convert_cmeie.py
+python3 baseline_train.py
+```
+
+
+
+## 训练 图网络
 ```bash
 python3 train2.py
 ```

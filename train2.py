@@ -50,13 +50,13 @@ def main_config():
     # a file to store property2idx
     # if is None use model_name.property2idx
     property_index = None
-    learning_rate = 6e-4
+    learning_rate = 5e-4
     shuffle_data = True
     save_model = True
     grad_clip = 0.25
     os.environ["CUDA_VISIBLE_DEVICES"] = str(device_id)
 
-    checkpoint = "data/models/GPGNN-e030-f1_0.6572.pt"
+    checkpoint = "data/models/GPGNN-e029-f1_0.7610.pt"
 
 
 @ex.automain

@@ -9,10 +9,10 @@ Q_filepath = "data/Q_with_labels.txt"
 
 MAX_vertex_num = 9
 
-data_path = 'resources/CMeIE/CMeIE_train.jsonl'
-newfile_path = 'data/cmeie_train.json'
-#data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
-#newfile_path = 'data/cmeie_dev.json'
+#data_path = 'resources/CMeIE/CMeIE_train.jsonl'
+#newfile_path = 'data/cmeie_train.json'
+data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
+newfile_path = 'data/cmeie_dev.json'
 #data_path = 'data/example_test.jsonl'
 #newfile_path = 'data/test.json'
 
@@ -75,6 +75,10 @@ with open(schemas_path) as f:
             id2p[f"P{len(p2id)+6}"] = l['predicate']
             p2id[l['predicate']] = f"P{len(p2id)+6}"
 
+if "P1" not in id2p: # P1 用于标记“无用”的边
+    id2p["P1"] = "P1"
+    p2id["P1"] = "P1"
+
 
 # 转换数据
 D = []
@@ -91,6 +95,22 @@ with open(data_path, encoding='utf-8') as f:
             "vertexSet" : [],
             "edgeSet" : []
         }
+
+        entity_map = { # 只使用 一个标签
+            "检查"    : [],
+            "疾病"    : [],
+            "症状"    : [],
+            "手术治疗" : [],
+            "其他治疗" : [],
+            "部位"    : [],
+            "药物"    : [],
+            "流行病学" : [],
+            "社会学"  : [],
+            "预后"    : [],
+            "其他"    : [],
+        }
+
+        spo_schemas = []
 
         for spo in l['spo_list']:
             s = spo['subject']
@@ -164,28 +184,34 @@ with open(data_path, encoding='utf-8') as f:
                 return False
 
             if not in_vertexSet(s_kbID) and len(new_item["vertexSet"])<MAX_vertex_num: # 节点数超过，不再添加边
+                tokenpositions = [ i for i in range(s_idx, s_idx + len(s)) ]
                 new_item["vertexSet"].append({
                     "kbID": s_kbID,
                     "lexicalInput": s_str,
                     "namedEntity": True,
-                    "tokenpositions": [ i for i in range(s_idx, s_idx + len(s)) ],
+                    "tokenpositions": tokenpositions,
                     "numericalValue": 0.0,
                     "variable": False,
                     "unique": False,
                     "type": "LEXICAL"
                 })
 
+                entity_map[spo["subject_type"]].append((tokenpositions, spo['subject']))
+
             if not in_vertexSet(o_kbID) and len(new_item["vertexSet"])<MAX_vertex_num:
+                tokenpositions = [ i for i in range(o_idx, o_idx + len(o)) ]
                 new_item["vertexSet"].append({
                     "kbID": o_kbID,
                     "lexicalInput": o_str,
                     "namedEntity": True,
-                    "tokenpositions": [ i for i in range(o_idx, o_idx + len(o)) ],
+                    "tokenpositions": tokenpositions,
                     "numericalValue": 0.0,
                     "variable": False,
                     "unique": False,
                     "type": "LEXICAL"
                 })
+
+                entity_map[spo["object_type"]["@value"]].append((tokenpositions, spo['object']["@value"]))
 
             # 添加 关系到 edgeSet
             if in_vertexSet(s_kbID) and in_vertexSet(o_kbID): 
@@ -194,6 +220,38 @@ with open(data_path, encoding='utf-8') as f:
                     "right": [ i for i in range(s_idx, s_idx + len(s)) ],
                     "left": [ i for i in range(o_idx, o_idx + len(o)) ]
                 })
+
+            # 记录已添加的边
+            spo_schemas.append(f"{spo['subject']}_{spo['object']['@value']}")
+
+
+        # 生成边，“无用的”
+        for d in entity_map["疾病"]: # 疾病为主语的
+            for k in entity_map.keys():
+                if k=="疾病":
+                    continue
+                for j in entity_map[k]:
+                    if f"{d[1]}_{j[1]}" in spo_schemas: # 已有边
+                        continue
+                    new_item["edgeSet"].append({
+                        "kbID": "P1",
+                        "right": d[0],
+                        "left": j[0],
+                    })
+
+        for k in entity_map.keys(): # 同义词
+            if len(entity_map[k])<2:
+                continue
+            for i in range(len(entity_map[k])-1):
+                for j in range(i+1, len(entity_map[k]), 1):
+                    if f"{entity_map[k][i][1]}_{entity_map[k][j][1]}" in spo_schemas: # 已有边
+                        continue
+                    new_item["edgeSet"].append({
+                        "kbID": "P1",
+                        "right": entity_map[k][i][0],
+                        "left": entity_map[k][j][0],
+                    })
+
 
         if len(new_item["vertexSet"])<2: # 忽略只有一个节点的数据
             continue
@@ -246,9 +304,10 @@ token_len= 286  vertex_n= 31    edge_n= 32
 过滤后
 
 Train:
-total= 14336    P= 44   Q= 25247
-token_len= 297  vertex_n= 9 edge_n= 18
+total= 14336    P= 45   Q= 29475
+token_len= 297  vertex_n= 9 edge_n= 47
 
-total= 3585 P= 44   Q= 25247
-token_len= 286  vertex_n= 9 edge_n= 15
+total= 3585 P= 45   Q= 29475
+token_len= 286  vertex_n= 9 edge_n= 43
+
 '''

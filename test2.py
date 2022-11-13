@@ -42,7 +42,7 @@ def to_np(x):
 def main_config():
     """ Main Configurations """
     model_name = "GPGNN"
-    load_model = "GPGNN-e030-f1_0.7092.pt" # you should choose the proper model to load
+    load_model = "GPGNN-e001-f1_0.7699.pt" # you should choose the proper model to load
     device_id = 0
 
     data_folder = "data/"
@@ -136,6 +136,10 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
                 id2p[pid] = P
                 p2id[P] = pid
 
+    if "P1" not in id2p: # P1 用于标记“无用”的边
+        id2p["P1"] = "P1"
+        p2id["P1"] = "P1"
+
     #  schemas
     schemas_path = 'resources/CMeIE/53_schemas.jsonl'
     schema_list = []
@@ -192,10 +196,7 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
 
                 schema = f"{predicate}_{x['right_type']}_{x['left_type']}"
 
-                #if x["right_type"]==x["left_type"] and predicate!="同义词":
-                #    pass
-                #else:
-                if schema in schema_list:
+                if (schema in schema_list) and (predicate!='P1'):
                     item["spo_list"].append({
                         "Combined": False,
                         "predicate": predicate,

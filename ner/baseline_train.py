@@ -20,7 +20,7 @@ DATASET = 'cmeie'
 maxlen = 512
 epochs = 20
 batch_size = 16
-learning_rate = 2e-5
+learning_rate = 1e-5
 categories = set()
 
 # bert配置
@@ -212,7 +212,7 @@ if __name__ == '__main__':
     evaluator = Evaluator()
     train_generator = data_generator(train_data, batch_size)
 
-    #model.load_weights(f'data/{DATASET}_best_f1_0.76259.weights')
+    model.load_weights(f'data/{DATASET}_best_f1_0.76332.weights')
 
     model.fit(
         train_generator.forfit(),
@@ -222,6 +222,6 @@ if __name__ == '__main__':
     )
 
 else:
-    model.load_weights(f'data/{DATASET}_best_f1_0.76332.weights')
+    model.load_weights(f'data/{DATASET}_best_f1_0.77184.weights')
     #predict_to_file(f'{data_path}/{DATASET}_dev.json', f'data/{DATASET}_dev_pred.json')
     predict_to_file(f'{data_path}/{DATASET}_test.json', f'data/{DATASET}_test_pred.jsonl')

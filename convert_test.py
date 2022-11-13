@@ -78,6 +78,10 @@ with open(schemas_path) as f:
             id2p[f"P{len(p2id)+6}"] = l['predicate']
             p2id[l['predicate']] = f"P{len(p2id)+6}"
 
+if "P1" not in id2p: # P1 用于标记“无用”的边
+    id2p["P1"] = "P1"
+    p2id["P1"] = "P1"
+
 
 # 转换数据
 D = []
@@ -180,7 +184,7 @@ with open(data_path, encoding='utf-8') as f:
                     continue
                 for j in entity_map[k]:
                     new_item["edgeSet"].append({
-                        "kbID": "P6",
+                        "kbID": "P1",
                         "right": d[0],
                         "right_text": d[1],
                         "right_type": "疾病",
@@ -189,20 +193,13 @@ with open(data_path, encoding='utf-8') as f:
                         "left_type": k
                     })
 
-        '''
-            A B C
-
-            A B
-            A C
-            B C
-        '''
         for k in entity_map.keys(): # 同义词
             if len(entity_map[k])<2:
                 continue
             for i in range(len(entity_map[k])-1):
                 for j in range(i+1, len(entity_map[k]), 1):
                     new_item["edgeSet"].append({
-                        "kbID": "P6",
+                        "kbID": "P1",
                         "right": entity_map[k][i][0],
                         "right_text": entity_map[k][i][1],
                         "right_type": k,

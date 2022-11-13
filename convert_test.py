@@ -7,13 +7,8 @@ schemas_path = 'resources/CMeIE/53_schemas.jsonl'
 P_filepath = "data/P_with_labels.txt"
 Q_filepath = "data/Q_with_labels.txt"
 
-# train:
-#   total= 14339    P= 44   Q= 25238 
-#   token_len= 297    vertex_n= 37    edge_n= 36
-# dev: 
-#   total= 3585 P= 44   Q= 25238
-#   token_len= 286   vertex_n= 31    edge_n= 32
 
+MAX_vertex_num = 9
 train_batch_size = 16
 
 #data_path = 'ner/data/cmeie_test_pred_example.jsonl'
@@ -53,6 +48,7 @@ def search(pattern, sequence):
 p2id, id2p = {}, {}
 q2id, id2q = {}, {}
 
+
 if os.path.exists(P_filepath):
     with open(P_filepath) as f:
         for l in f:
@@ -61,6 +57,7 @@ if os.path.exists(P_filepath):
             pid, P = l.split()
             id2p[pid] = P
             p2id[P] = pid
+
 
 if os.path.exists(Q_filepath):
     with open(Q_filepath) as f:
@@ -137,7 +134,7 @@ with open(data_path, encoding='utf-8') as f:
 
                 break
 
-            if try_again==2: # 放弃这个数据
+            if try_again > 1: # 放弃这个数据
                 continue
 
             # 生成 Q 标记
@@ -156,7 +153,7 @@ with open(data_path, encoding='utf-8') as f:
                         return True
                 return False
 
-            if not in_vertexSet(s_kbID) and len(new_item["vertexSet"])<9: # 最多支持 9 个结点
+            if not in_vertexSet(s_kbID) and len(new_item["vertexSet"])<MAX_vertex_num: # 最多支持 MAX_vertex_num 个结点
                 tokenpositions = [ i for i in range(s_idx, s_idx + len(s)) ]
                 new_item["vertexSet"].append({
                     "kbID": s_kbID,

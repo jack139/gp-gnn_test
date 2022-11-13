@@ -7,19 +7,14 @@ schemas_path = 'resources/CMeIE/53_schemas.jsonl'
 P_filepath = "data/P_with_labels.txt"
 Q_filepath = "data/Q_with_labels.txt"
 
-# train:
-#   total= 14339    P= 44   Q= 25238 
-#   token_len= 297    vertex_n= 37    edge_n= 36
-# dev: 
-#   total= 3585 P= 44   Q= 25238
-#   token_len= 286   vertex_n= 31    edge_n= 32
+MAX_vertex_num = 9
 
-#data_path = 'resources/CMeIE/CMeIE_train.jsonl'
-#newfile_path = 'data/cmeie_train.json'
+data_path = 'resources/CMeIE/CMeIE_train.jsonl'
+newfile_path = 'data/cmeie_train.json'
 #data_path = 'resources/CMeIE/CMeIE_dev.jsonl'
 #newfile_path = 'data/cmeie_dev.json'
-data_path = 'data/example_test.jsonl'
-newfile_path = 'data/test.json'
+#data_path = 'data/example_test.jsonl'
+#newfile_path = 'data/test.json'
 
 
 maxlen = None # 不限长度
@@ -36,6 +31,7 @@ tokenizer = Tokenizer(dict_path, do_lower_case=True,
 
 P_nn = Q_nn = 0
 max_token_len = max_vertex_n = max_edge_n = 0
+max_vertex_n_9 = [0] * 40
 
 def search(pattern, sequence):
     """从sequence中寻找子串pattern
@@ -104,24 +100,43 @@ with open(data_path, encoding='utf-8') as f:
             p_kbID = p2id[p]
 
             # 查找并转换token, 使用token查找，因为token不一定是单字符
-            s = tokenizer.encode(s)[0]
-            o = tokenizer.encode(o)[0]
-            s_idx = search(s, token_ids)
-            o_idx = search(o, token_ids)
-            if s_idx != -1 and o_idx != -1:
-                s = token_ids[s_idx : s_idx + len(s)]
-                o = token_ids[o_idx : o_idx + len(o)]
-                s_ids = tokenizer.ids_to_tokens(s)
-                o_ids = tokenizer.ids_to_tokens(o)
-                #s_str = ''.join([Tokenizer.stem(i) for i in s_ids]) # 去掉前缀 '##'
-                #o_str = ''.join([Tokenizer.stem(i) for i in o_ids]) # 去掉前缀 '##'
-                s_str = ''.join(s_ids)
-                o_str = ''.join(o_ids)
-            else:
-                print("search fail:", l)
-                print(tokenizer.ids_to_tokens(token_ids))
-                print(tokenizer.ids_to_tokens(s))
-                print(tokenizer.ids_to_tokens(o))
+            s = tokenizer.encode(spo['subject'])[0]
+            o = tokenizer.encode(spo['object']["@value"])[0]
+            try_again = 0
+            while  True:
+                s_idx = search(s, token_ids)
+                o_idx = search(o, token_ids)
+                if s_idx != -1 and o_idx != -1:
+                    s = token_ids[s_idx : s_idx + len(s)]
+                    o = token_ids[o_idx : o_idx + len(o)]
+                    s_ids = tokenizer.ids_to_tokens(s)
+                    o_ids = tokenizer.ids_to_tokens(o)
+                    #s_str = ''.join([Tokenizer.stem(i) for i in s_ids]) # 去掉前缀 '##'
+                    #o_str = ''.join([Tokenizer.stem(i) for i in o_ids]) # 去掉前缀 '##'
+                    s_str = ''.join(s_ids)
+                    o_str = ''.join(o_ids)
+                else:
+                    if try_again==0: # 这里假设 s_idx 和 o_idx 不会同时为 -1
+                        if s_idx==-1:
+                            s = tokenizer.encode('⑤'+spo['subject'])[0] # ⑤a 会变成  ⑤##a, 所以转换一下，进行匹配
+                            s = s[1:]
+                            try_again += 1
+                            continue
+                        elif o_idx==-1:
+                            o = tokenizer.encode('⑤'+spo['object']["@value"])[0] # ⑤a 会变成  ⑤##a, 所以转换一下，进行匹配
+                            o = o[1:]
+                            try_again += 1
+                            continue
+
+                    print("search fail:", l)
+                    print(tokenizer.ids_to_tokens(token_ids))
+                    print(tokenizer.ids_to_tokens(s))
+                    print(tokenizer.ids_to_tokens(o))
+                    try_again += 1 # 此时应为 2
+
+                break
+
+            if try_again > 1: # 放弃这个数据
                 continue
 
             # 生成 Q 标记
@@ -148,7 +163,7 @@ with open(data_path, encoding='utf-8') as f:
                         return True
                 return False
 
-            if not in_vertexSet(s_kbID):
+            if not in_vertexSet(s_kbID) and len(new_item["vertexSet"])<MAX_vertex_num: # 节点数超过，不再添加边
                 new_item["vertexSet"].append({
                     "kbID": s_kbID,
                     "lexicalInput": s_str,
@@ -160,7 +175,7 @@ with open(data_path, encoding='utf-8') as f:
                     "type": "LEXICAL"
                 })
 
-            if not in_vertexSet(o_kbID):
+            if not in_vertexSet(o_kbID) and len(new_item["vertexSet"])<MAX_vertex_num:
                 new_item["vertexSet"].append({
                     "kbID": o_kbID,
                     "lexicalInput": o_str,
@@ -173,11 +188,12 @@ with open(data_path, encoding='utf-8') as f:
                 })
 
             # 添加 关系到 edgeSet
-            new_item["edgeSet"].append({
-                "kbID": p_kbID,
-                "right": [ i for i in range(s_idx, s_idx + len(s)) ],
-                "left": [ i for i in range(o_idx, o_idx + len(o)) ]
-            })
+            if in_vertexSet(s_kbID) and in_vertexSet(o_kbID): 
+                new_item["edgeSet"].append({
+                    "kbID": p_kbID,
+                    "right": [ i for i in range(s_idx, s_idx + len(s)) ],
+                    "left": [ i for i in range(o_idx, o_idx + len(o)) ]
+                })
 
         if len(new_item["vertexSet"])<2: # 忽略只有一个节点的数据
             continue
@@ -187,6 +203,8 @@ with open(data_path, encoding='utf-8') as f:
         max_token_len = max(max_token_len, len(new_item["tokens"]))
         max_vertex_n = max(max_vertex_n, len(new_item["vertexSet"]))
         max_edge_n = max(max_edge_n, len(new_item["edgeSet"]))
+
+        max_vertex_n_9[len(new_item["vertexSet"])] += 1
 
 
 
@@ -212,3 +230,25 @@ if Q_nn > 0:
 
 print(f"total= {len(D)}\tP= {len(id2p)}\tQ= {len(id2q)}")
 print(f"token_len= {max_token_len}\tvertex_n= {max_vertex_n}\tedge_n= {max_edge_n}")
+print(f"max_vertex_n_9= {max_vertex_n_9}")
+
+'''
+未用MAX_vertex_num过滤前：
+
+Train:
+total= 14336    P= 44   Q= 30464
+token_len= 297  vertex_n= 37    edge_n= 36
+
+Dev:
+total= 3585 P= 44   Q= 30464
+token_len= 286  vertex_n= 31    edge_n= 32
+
+过滤后
+
+Train:
+total= 14336    P= 44   Q= 25247
+token_len= 297  vertex_n= 9 edge_n= 18
+
+total= 3585 P= 44   Q= 25247
+token_len= 286  vertex_n= 9 edge_n= 15
+'''

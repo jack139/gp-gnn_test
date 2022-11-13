@@ -42,7 +42,7 @@ def to_np(x):
 def main_config():
     """ Main Configurations """
     model_name = "GPGNN"
-    load_model = "GPGNN-e027-f1_0.7134.pt" # you should choose the proper model to load
+    load_model = "GPGNN-e030-f1_0.7092.pt" # you should choose the proper model to load
     device_id = 0
 
     data_folder = "data/"
@@ -136,6 +136,16 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
                 id2p[pid] = P
                 p2id[P] = pid
 
+    #  schemas
+    schemas_path = 'resources/CMeIE/53_schemas.jsonl'
+    schema_list = []
+    with open(schemas_path) as f:
+        for l in f:
+            l = json.loads(l)
+            schema = f"{l['predicate']}_{l['subject_type']}_{l['object_type']}"
+            if schema not in schema_list:
+                schema_list.append(schema)
+
     print("Start testing!")
     result_file = open(data_folder + f"result_{model_name}.txt", "w")
 
@@ -180,9 +190,12 @@ def main(model_params, model_name, data_folder, word_embeddings, test_set, prope
 
                 predicate = id2p[all_labels[predicted[predicted_nn]-1]]
 
-                if x["right_type"]==x["left_type"] and predicate!="同义词":
-                    pass
-                else:
+                schema = f"{predicate}_{x['right_type']}_{x['left_type']}"
+
+                #if x["right_type"]==x["left_type"] and predicate!="同义词":
+                #    pass
+                #else:
+                if schema in schema_list:
                     item["spo_list"].append({
                         "Combined": False,
                         "predicate": predicate,
